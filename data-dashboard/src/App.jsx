@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MantineProvider, AppShell, Header } from "@mantine/core";
 import { SimpleNavBar } from "./Components/SimpleNavBar";
+import HomePage from "./Pages/HomePage";
 import ShippersPage from "./Pages/ShippersPage";
 import ShipperBusinessReviewPage from "./Pages/ShipperBusinessReviewPage";
 import {
@@ -61,8 +62,9 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Navigate replace to="/dashboard/shippers" />}
+              element={<Navigate replace to="/dashboard/home" />}
             ></Route>
+            <Route path="/dashboard/home" element={<HomePage />} />
             <Route path="/dashboard/shippers" element={<ShippersPage />} />
             <Route
               path="/dashboard/shippers/businessreview"

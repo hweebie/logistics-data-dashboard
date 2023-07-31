@@ -1,13 +1,6 @@
 import { useState } from "react";
-import {
-  createStyles,
-  Navbar,
-  Group,
-  Code,
-  getStylesRef,
-  rem,
-} from "@mantine/core";
-import { IconTruckDelivery } from "@tabler/icons-react";
+import { createStyles, Navbar, Group, getStylesRef, rem } from "@mantine/core";
+import { IconHome2, IconTruckDelivery } from "@tabler/icons-react";
 import { Image } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 
@@ -91,8 +84,8 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const data = [
+  { link: "/dashboard/home", label: "Home", icon: IconHome2 },
   { link: "/dashboard/shippers", label: "Shippers", icon: IconTruckDelivery },
-  { link: "/dashboard/settings", label: "OtherPage", icon: IconTruckDelivery },
 ];
 
 export function SimpleNavBar() {
@@ -105,10 +98,12 @@ export function SimpleNavBar() {
         [classes.linkActive]: item.label === active,
       })}
       key={item.label}
-      icon={<item.icon className={classes.linkIcon} stroke={1.5} />}
+      // icon={<item.icon className={classes.linkIcon} stroke={1.5} />}
       onClick={() => setActive(item.label)}
       to={item.link}
     >
+      {" "}
+      <item.icon className={classes.linkIcon} stroke={1.5} />
       {item.label}
     </NavLink>
   ));

@@ -51,5 +51,7 @@ This game was developed as part of my coursework for my Software Engineering Imm
 1. Create readme - done
 2. Basic website layout using mantine - done
 3. Build Shipper and business review pages - done
-4. Add routes
-5. Pull trips data and display in shipper page
+4. Add routes - done
+5. Add shipper-specific routes
+6. Set up trips data in airtable
+7. Fetch trips data and display in shipper page
