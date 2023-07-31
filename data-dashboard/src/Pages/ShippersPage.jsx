@@ -1,12 +1,12 @@
-import React from "react";
+import { React, useState } from "react";
 import ShippersTable from "../Components/ShippersTable";
 
-const ShippersPage = () => {
+const ShippersPage = (props) => {
   return (
     <div>
       <h1>Shippers</h1>
       <div>
-        <ShippersTable />
+        <ShippersTable shipperData={props.shipperData} />
       </div>
     </div>
   );

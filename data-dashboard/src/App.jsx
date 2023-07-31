@@ -12,6 +12,19 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const [shipperData, setShipperData] = useState([
+    {
+      id: "recjLPXLxSKFtMHGc",
+      name: "Coca Cola",
+      tripsLink: "[URL for trips link]",
+    },
+    {
+      id: "recRIiu9EgDBYcjFl",
+      name: "Pepsi",
+      tripsLink: "[URL for trips link]",
+    },
+  ]);
+
   return (
     <MantineProvider
       theme={{
@@ -65,10 +78,13 @@ function App() {
               element={<Navigate replace to="/dashboard/home" />}
             ></Route>
             <Route path="/dashboard/home" element={<HomePage />} />
-            <Route path="/dashboard/shippers" element={<ShippersPage />} />
             <Route
-              path="/dashboard/shippers/businessreview"
-              element={<ShipperBusinessReviewPage />}
+              path="/dashboard/shippers"
+              element={<ShippersPage shipperData={shipperData} />}
+            />
+            <Route
+              path="/dashboard/shippers/businessreview/:id"
+              element={<ShipperBusinessReviewPage shipperData={shipperData} />}
             />
           </Routes>
         </AppShell>

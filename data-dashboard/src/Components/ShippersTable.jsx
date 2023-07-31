@@ -3,28 +3,16 @@ import { Table } from "@mantine/core";
 import { Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 
-const ShippersTable = () => {
-  const shipperData = [
-    {
-      name: "Bilis Agriculture",
-      tripsLink: "Trips Link",
-      actions: "Business review", //TODO: add button and link to shipper page
-    },
-    {
-      name: "Starbucks",
-      tripsLink: "Trips Link",
-      actions: "Business review", //TODO: add button and link to shipper page
-    },
-  ];
-  const rows = shipperData.map((element) => (
+const ShippersTable = (props) => {
+  const rows = props.shipperData.map((element) => (
     <tr key={element.name}>
       <td>{element.name}</td>
       <td>{element.tripsLink}</td>
       <td>
         {
-          <Link to="/dashboard/shippers/businessreview">
+          <Link to={`/dashboard/shippers/businessreview/${element.id}`}>
             <Button compact variant="outline">
-              {element.actions}
+              {`Business review`}
             </Button>
           </Link>
         }

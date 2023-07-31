@@ -1,13 +1,26 @@
-import React from "react";
+import { useState, useEffect, React } from "react";
 import { Grid } from "@mantine/core";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const ShipperBusinessReviewPage = () => {
+const ShipperBusinessReviewPage = (props) => {
+  //get shippername by shipper ID to display on page
+  const [shipperName, setShipperName] = useState("");
+  const shipperID = useParams();
+  const getShipperName = () => {
+    const tempArray = props.shipperData;
+    const result = tempArray.find((item) => item.id === shipperID.id);
+    setShipperName(result.name);
+  };
+
+  useEffect(() => {
+    getShipperName();
+  }, []);
+
   return (
     <div>
-      <h2>Shipper1 - Business Review</h2>
+      <h2>{shipperName} - Business Review</h2>
       <p>
-        <Link to="/dashboard/shippers"> Shippers</Link> / Shipper1
+        <Link to="/dashboard/shippers"> Shippers</Link> / {shipperName}
       </p>
       <br />
       <div className="charts">
