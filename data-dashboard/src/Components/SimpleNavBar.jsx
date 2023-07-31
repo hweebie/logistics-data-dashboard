@@ -9,6 +9,7 @@ import {
 } from "@mantine/core";
 import { IconTruckDelivery } from "@tabler/icons-react";
 import { Image } from "@mantine/core";
+import { NavLink } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -89,27 +90,27 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const data = [{ link: "", label: "Shippers", icon: IconTruckDelivery }];
+const data = [
+  { link: "/dashboard/shippers", label: "Shippers", icon: IconTruckDelivery },
+  { link: "/dashboard/settings", label: "OtherPage", icon: IconTruckDelivery },
+];
 
 export function SimpleNavBar() {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState("Shippers");
 
   const links = data.map((item) => (
-    <a
+    <NavLink
       className={cx(classes.link, {
         [classes.linkActive]: item.label === active,
       })}
-      href={item.link}
       key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(item.label);
-      }}
+      icon={<item.icon className={classes.linkIcon} stroke={1.5} />}
+      onClick={() => setActive(item.label)}
+      to={item.link}
     >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
-      <span>{item.label}</span>
-    </a>
+      {item.label}
+    </NavLink>
   ));
 
   return (
