@@ -1,5 +1,5 @@
 import React from "react";
-import ShippersTable from "./ShippersTable";
+import ShippersTable from "../Components/ShippersTable";
 
 const ShippersPage = () => {
   return (

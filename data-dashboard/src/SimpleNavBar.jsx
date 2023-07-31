@@ -8,7 +8,7 @@ import {
   rem,
 } from "@mantine/core";
 import { IconTruckDelivery } from "@tabler/icons-react";
-import { MantineLogo } from "@mantine/ds";
+import { Image } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -113,11 +113,16 @@ export function SimpleNavBar() {
   ));
 
   return (
-    <Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
+    <Navbar width={{ sm: 300 }} p="md" className={classes.navbar}>
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          <MantineLogo size={28} inverted />
-          <Code className={classes.version}>v3.1.2</Code>
+          {/* <MantineLogo size={28} inverted /> */}
+          <Image
+            width={170}
+            height={80}
+            src="https://baehynoyclonrpjiwhza.supabase.co/storage/v1/object/public/shipamiga/assets/shipamiga-logo"
+          />
+          <Code className={classes.version}>v1.0.0</Code>
         </Group>
         {links}
       </Navbar.Section>
