@@ -15,39 +15,20 @@ const ShipperBusinessReviewPage = (props) => {
     setShipperName(result.name);
   };
 
-  //get records
-  // credentials:patS9zTnTTU3pVbtG
-  // URL: https://api.airtable.com/v0/appPYAMvKJeeoDs8Y/Trips%2520(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=recordId&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&fields%5B%5D=createdTimestamp&filterByFormula=AND(%7BcontractorID%7D%3D%22recqV6q63wMcfr6U6%22%2C%7BclientID%7D+%3D+%22recjLPXLxSKFtMHGc%22)&sort%5B0%5D%5Bfield%5D=&sort%5B0%5D%5Bdirection%5D=asc
-
-  //   const apiKey = "patS9zTnTTU3pVbtG";
-  //   const url =
-  //     "https://api.airtable.com/v0/appPYAMvKJeeoDs8Y/Trips%2520(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=recordId&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&fields%5B%5D=createdTimestamp&filterByFormula=AND(%7BcontractorID%7D%3D%22recqV6q63wMcfr6U6%22%2C%7BclientID%7D+%3D+%22recjLPXLxSKFtMHGc%22)&sort%5B0%5D%5Bfield%5D=&sort%5B0%5D%5Bdirection%5D=asc";
-  //   const getTripsData = async () => {
-  //     const headers = {
-  //       Authorization: `Bearer ${apiKey}`,
-  //     };
-
-  //     // Make the GET request
-  //     const res = await fetch(url, { headers });
-  //     if (res.status === 200) {
-  //       const data = await res.json();
-  //       setTripsData(data);
-  //     } else {
-  //       const errorMessage = await res.text();
-  //       throw new Error(`API Error: ${res.status} - ${errorMessage}`);
-  //     }
-  //   };
-
+  //get trips for the specific shipper by calling airtable API
   const getTripsData = () => {
+    const tripsArray = [];
+
     Airtable.configure({
       endpointUrl: "https://api.airtable.com",
       apiKey:
-        "patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c",
+        "patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c", //TODO: store elsewhere
     });
     var base = Airtable.base("appPYAMvKJeeoDs8Y");
 
     base("Trips (Hwee)")
       .select({
+        //retrieve only these fields from the table
         fields: [
           "clientName",
           "clientId",
@@ -69,8 +50,13 @@ const ShipperBusinessReviewPage = (props) => {
       .eachPage(
         function page(records, fetchNextPage) {
           // This function (`page`) will get called for each page of records.
+
           records.forEach(function (record) {
-            console.log("Retrieved", record.fields);
+            tripsArray.push(record.fields); //push each record into tripsArray
+          });
+
+          setTripsData((currentState) => {
+            return [...currentState, ...tripsArray];
           });
 
           // To fetch the next page of records, call `fetchNextPage`.
@@ -85,6 +71,8 @@ const ShipperBusinessReviewPage = (props) => {
           }
         }
       );
+
+    // setTripsData(tripsArray);
   };
 
   useEffect(() => {
