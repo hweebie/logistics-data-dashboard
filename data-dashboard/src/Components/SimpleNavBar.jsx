@@ -89,11 +89,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const data = [{ link: "", label: "Shipper", icon: IconTruckDelivery }];
+const data = [{ link: "", label: "Shippers", icon: IconTruckDelivery }];
 
 export function SimpleNavBar() {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState("Billing");
+  const [active, setActive] = useState("Shippers");
 
   const links = data.map((item) => (
     <a
@@ -113,15 +113,13 @@ export function SimpleNavBar() {
   ));
 
   return (
-    <Navbar width={{ sm: 300 }} p="md" className={classes.navbar}>
+    <Navbar width={{ sm: 200 }} p="md" className={classes.navbar}>
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
           <Image
-            width={170}
-            height={80}
+            width={140}
             src="https://baehynoyclonrpjiwhza.supabase.co/storage/v1/object/public/shipamiga/assets/shipamiga-logo"
           />
-          <Code className={classes.version}>v1.0.0</Code>
         </Group>
         {links}
       </Navbar.Section>

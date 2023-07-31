@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MantineProvider, AppShell, Navbar, Header } from "@mantine/core";
-import { SimpleNavBar } from "./SimpleNavBar";
+import { SimpleNavBar } from "./Components/SimpleNavBar";
 import ShippersPage from "./Pages/ShippersPage";
 import ShipperBusinessReviewPage from "./Pages/ShipperBusinessReviewPage";
 function App() {

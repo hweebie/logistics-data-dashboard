@@ -14,7 +14,7 @@ This game was developed as part of my coursework for my Software Engineering Imm
 
 - JavaScript
 - Front-end library: React.js
-- Front-end toolkit: Mantine
+- React component library: Mantine
 - Charting library: Chart.js
 - Database: Airtable
 
@@ -48,6 +48,8 @@ This game was developed as part of my coursework for my Software Engineering Imm
 
 ## 31 Jul 2023 -
 
-1. Create readme
-2. Basic website layout
-3. Pull data and display in table
+1. Create readme - done
+2. Basic website layout using mantine - done
+3. Build Shipper and business review pages - done
+4. Add routes
+5. Pull trips data and display in shipper page
