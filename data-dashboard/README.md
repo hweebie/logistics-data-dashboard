@@ -54,4 +54,16 @@ This game was developed as part of my coursework for my Software Engineering Imm
 4. Add routes - done
 5. Add shipper-specific routes - done
 6. Set up trips data in airtable - done
-7. Fetch trips data and display in shipper page
+7. Fetch trips data of shipper and display in shipper biz dashboard - done
+8. Show trips data in table
+
+## Next steps
+
+1. Build trips table
+2. Add search
+3. Add date filters
+4. Add chart 1
+5. Add chart 2
+6. Add lifting state
+7. Deploy, MVP complete
+8. Stretch goal - use D3 for charts

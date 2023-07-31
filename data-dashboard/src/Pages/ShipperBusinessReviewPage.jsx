@@ -2,6 +2,7 @@ import { useState, useEffect, React } from "react";
 import { Grid } from "@mantine/core";
 import { Link, useParams } from "react-router-dom";
 import Airtable from "airtable";
+import TripsTable from "../Components/TripsTable";
 
 const ShipperBusinessReviewPage = (props) => {
   const [tripsData, setTripsData] = useState([]);
@@ -104,7 +105,7 @@ const ShipperBusinessReviewPage = (props) => {
       <div className="trip-data">
         <h2>Trips</h2>
         <p>Search bar, date filter</p>
-        <p>{JSON.stringify(tripsData)}</p>
+        <TripsTable tripsData={tripsData}></TripsTable>
       </div>
     </div>
   );
