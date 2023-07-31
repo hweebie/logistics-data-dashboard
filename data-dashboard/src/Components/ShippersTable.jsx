@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "@mantine/core";
 import { Button } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 const ShippersTable = () => {
   const shipperData = [
@@ -14,11 +15,6 @@ const ShippersTable = () => {
       tripsLink: "Trips Link",
       actions: "Business review", //TODO: add button and link to shipper page
     },
-    {
-      name: "Love, Bonito",
-      tripsLink: "Trips Link",
-      actions: "Business review", //TODO: add button and link to shipper page
-    },
   ];
   const rows = shipperData.map((element) => (
     <tr key={element.name}>
@@ -26,9 +22,11 @@ const ShippersTable = () => {
       <td>{element.tripsLink}</td>
       <td>
         {
-          <Button compact variant="outline">
-            {element.actions}
-          </Button>
+          <Link to="/dashboard/shippers/businessreview">
+            <Button compact variant="outline">
+              {element.actions}
+            </Button>
+          </Link>
         }
       </td>
     </tr>
