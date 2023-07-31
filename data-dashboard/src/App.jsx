@@ -1,30 +1,43 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-// import "./App.css";
-
 import { MantineProvider, AppShell, Navbar, Header } from "@mantine/core";
-
+import { SimpleNavBar } from "./SimpleNavBar";
+import ShippersPage from "./Pages/ShippersPage";
 function App() {
   return (
     <MantineProvider
-      theme={{ fontFamily: "Open Sans" }}
+      // theme={{ fontFamily: "Open Sans" }}
+      theme={{
+        globalStyles: (theme) => ({
+          "*, *::before, *::after": {
+            boxSizing: "border-box",
+          },
+
+          body: {
+            ...theme.fn.fontStyles(),
+            backgroundColor:
+              theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+            color:
+              theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
+            lineHeight: theme.lineHeight,
+          },
+
+          ".your-class": {
+            backgroundColor: "red",
+          },
+
+          "#your-id > [data-active]": {
+            backgroundColor: "pink",
+          },
+        }),
+      }}
       withGlobalStyles
       withNormalizeCSS
     >
       <AppShell
         padding="md"
-        navbar={
-          <Navbar width={{ base: 300 }} height={500} p="xs">
-            {/* First section with normal height (depends on section content) */}
-            <Navbar.Section>First section</Navbar.Section>
-
-            {/* Last section with normal height (depends on section content) */}
-            <Navbar.Section>Second section</Navbar.Section>
-          </Navbar>
-        }
+        navbar={<SimpleNavBar />}
         header={
-          <Header height={60} p="xs">
+          <Header height={0} p="xs">
             ShipAmiga Dashboard
           </Header>
         }
@@ -37,7 +50,7 @@ function App() {
           },
         })}
       >
-        {`App content`}
+        {<ShippersPage />}
       </AppShell>
     </MantineProvider>
   );
