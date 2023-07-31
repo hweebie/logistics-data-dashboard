@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MantineProvider, AppShell, Navbar, Header } from "@mantine/core";
 import { SimpleNavBar } from "./SimpleNavBar";
 import ShippersPage from "./Pages/ShippersPage";
+import ShipperBusinessReviewPage from "./Pages/ShipperBusinessReviewPage";
 function App() {
   return (
     <MantineProvider
@@ -50,7 +51,7 @@ function App() {
           },
         })}
       >
-        {<ShippersPage />}
+        {<ShipperBusinessReviewPage />}
       </AppShell>
     </MantineProvider>
   );
