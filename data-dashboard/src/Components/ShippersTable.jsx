@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "@mantine/core";
+import { Button } from "@mantine/core";
 
 const ShippersTable = () => {
   const shipperData = [
@@ -23,7 +24,13 @@ const ShippersTable = () => {
     <tr key={element.name}>
       <td>{element.name}</td>
       <td>{element.tripsLink}</td>
-      <td>{element.actions}</td>
+      <td>
+        {
+          <Button compact variant="outline">
+            {element.actions}
+          </Button>
+        }
+      </td>
     </tr>
   ));
 

@@ -116,7 +116,6 @@ export function SimpleNavBar() {
     <Navbar width={{ sm: 300 }} p="md" className={classes.navbar}>
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          {/* <MantineLogo size={28} inverted /> */}
           <Image
             width={170}
             height={80}
