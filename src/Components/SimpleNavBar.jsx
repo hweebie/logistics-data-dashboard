@@ -90,7 +90,7 @@ const data = [
 
 export function SimpleNavBar() {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState("Shippers");
+  const [active, setActive] = useState("Home");
 
   const links = data.map((item) => (
     <NavLink

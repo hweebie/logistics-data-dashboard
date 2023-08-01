@@ -36,17 +36,15 @@ This game was developed as part of my coursework for my Software Engineering Imm
 
 - [Client Demo site][5]
 - [Navbar reference][6] - To create pixel art
-- [Reference for Sound][7] - Reference to add sound
-- [Sounds Source][7] - Source for arcade sounds
+- [Airtable URL encoder][7] - Reference for airtable endpoint
 
   [5]: https://dashboard.shipamiga.com/dashboard/recja2ANzmll7wqR5
   [6]: https://ui.mantine.dev/category/navbars#double-navbar
-  [7]: https://www.w3schools.com/graphics/game_sound.asp
-  [8]: https://www.sounds-resource.com/
+  [7]: https://codepen.io/airtable/full/MeXqOg?baseId=appPYAMvKJeeoDs8Y&tableId=tblghPYVFfkEZRIOE
 
 # Changelog
 
-## 31 Jul 2023 -
+## 31 Jul 2023
 
 1. Create readme - done
 2. Basic website layout using mantine - done
@@ -55,15 +53,24 @@ This game was developed as part of my coursework for my Software Engineering Imm
 5. Add shipper-specific routes - done
 6. Set up trips data in airtable - done
 7. Fetch trips data of shipper and display in shipper biz dashboard - done
-8. Show trips data in table
+8. Show trips data in table - done
+
+## 31 Jul 2023
+
+1. Use fetch method to retrieve data
+2. Use mantine datatable
+3. Add search and date filters on table
+4. Pull shippers via API and visualise in table
+5. Add chart 1
+
+- build isOnTime logic
+- populate more dummy data
+- use chart.js
+
+6. Add chart 2
 
 ## Next steps
 
-1. Build trips table
-2. Add search
-3. Add date filters
-4. Add chart 1
-5. Add chart 2
 6. Add lifting state
 7. Deploy, MVP complete
 8. Stretch goal - use D3 for charts

@@ -8,6 +8,7 @@ const TripsTable = (props) => {
       <td>{element.tripsLink}</td>
       <td>{element.deliveryDate}</td>
       <td>{element.actualDeliveryDate}</td>
+      <td>TBA</td>
       <td>{element.origin}</td>
       <td>{element.destination}</td>
       <td>{element.status}</td>
@@ -23,10 +24,11 @@ const TripsTable = (props) => {
           <th>Pick up date</th>
           <th>Requested delivery date</th>
           <th>Actual delivery date</th>
+          <th>Is on time?</th>
           <th>Origin</th>
           <th>Destination</th>
           <th>Status</th>
-          <th>Is on time?</th>
+
           {/* ^ todo: add this */}
         </tr>
       </thead>
