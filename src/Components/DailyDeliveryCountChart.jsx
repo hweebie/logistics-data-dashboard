@@ -30,7 +30,7 @@ const DailyDeliveryCountChart = (props) => {
       },
       title: {
         display: true,
-        text: "Total trips per day",
+        text: "Total actual deliveries per day",
       },
     },
   };
@@ -43,10 +43,17 @@ const DailyDeliveryCountChart = (props) => {
   }, {});
 
   // Step 2: Convert the object to an array of objects with date and count
-  const dataArray = Object.entries(dateCounts).map(([date, count]) => ({
+  let dataArray = Object.entries(dateCounts).map(([date, count]) => ({
     date,
     count,
   }));
+
+  //Sort by date in ascending order
+  dataArray = dataArray.sort((recordA, recordB) => {
+    const dateA = new Date(recordA.date);
+    const dateB = new Date(recordB.date);
+    return dateA - dateB;
+  });
 
   const data = {
     labels: dataArray.map((row) => row.date),

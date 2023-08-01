@@ -59,21 +59,29 @@ This game was developed as part of my coursework for my Software Engineering Imm
 
 1. Use fetch method to retrieve data - done
 2. Add lifting state - done
-3. Add chart 1
+3. Add chart 1 - done
 
-- build isOnTime logic
-- populate more dummy data
-- use chart.js
+- build isOnTime logic - done
+- use chart.js for charts - done
 
-4. Add chart 2
-5. Use mantine datatable
-6. Add search to table
-7. Add sort by date fields to table
-8. Add date filters to table
-9. Pull shippers via API and visualise in table
+4. Add chart 2 - done
+
+MVP Complete
 
 ## Next steps
 
-6. Add lifting state
-7. Deploy, MVP complete
-8. Stretch goal - use D3 for charts
+1. Table improvements
+
+- Use mantine datatable
+- Add search to table
+- Add filter by date fields to table
+
+2. Charts improvements
+
+- Seed more dummy data
+- Adjust range (past 7 days)
+
+3. Stretch goals
+
+- Write unit tests
+- Use D3 for charts

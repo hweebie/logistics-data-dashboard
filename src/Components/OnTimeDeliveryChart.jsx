@@ -21,6 +21,7 @@ ChartJS.register(
   Legend
 );
 
+//chart options
 const OnTimeDeliveryChart = (props) => {
   const options = {
     responsive: true,
@@ -30,38 +31,36 @@ const OnTimeDeliveryChart = (props) => {
       },
       title: {
         display: true,
-        text: "On-time deliveries by date",
+        text: "On-time deliveries by requested delivery date",
       },
     },
   };
 
-  //placeholder data. to be replaced with actual delivery count per date
-  const dataArray = [
-    {
-      date: "2023-07-25",
-      onTimeRate: 95,
-    },
-    {
-      date: "2023-07-26",
-      onTimeRate: 96,
-    },
-    {
-      date: "2023-07-27",
-      onTimeRate: 94,
-    },
-    {
-      date: "2023-07-28",
-      onTimeRate: 98,
-    },
-    {
-      date: "2023-07-29",
-      onTimeRate: 99,
-    },
-    {
-      date: "2023-07-30",
-      onTimeRate: 99.5,
-    },
-  ];
+  //Calculate % on time deliveries by requested delivery date
+  //Step 1: Use reduce to create an object with total and true counts per date
+  const countsByDate = props.tripsData.reduce((acc, record) => {
+    const { deliveryDate, isOnTime } = record;
+    acc[deliveryDate] = acc[deliveryDate] || { total: 0, trueCount: 0 };
+    acc[deliveryDate].total += 1;
+    if (isOnTime === true) {
+      acc[deliveryDate].trueCount += 1;
+    }
+    return acc;
+  }, {});
+
+  // Step 2: Convert the object to an array of objects with date and % true
+  let dataArray = Object.entries(countsByDate).map(([date, counts]) => ({
+    date,
+    onTimeRate: (counts.trueCount / counts.total) * 100,
+  }));
+
+  //Sort by date in ascending order
+  dataArray = dataArray.sort((recordA, recordB) => {
+    const dateA = new Date(recordA.date);
+    const dateB = new Date(recordB.date);
+    return dateA - dateB;
+  });
+
   const data = {
     labels: dataArray.map((row) => row.date),
     datasets: [

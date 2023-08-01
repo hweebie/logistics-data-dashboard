@@ -62,7 +62,7 @@ const ShipperBusinessReviewPage = (props) => {
           dateOptions
         );
 
-        if (record.actualDeliveryDate < record.deliveryDate) {
+        if (record.actualDeliveryDate <= record.deliveryDate) {
           record.isOnTime = true;
         } else {
           record.isOnTime = false;
