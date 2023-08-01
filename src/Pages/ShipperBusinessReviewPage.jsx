@@ -47,7 +47,7 @@ const ShipperBusinessReviewPage = (props) => {
       tripsArray.forEach(function (record) {
         const deliveryDate = new Date(record.deliveryDate);
         const actualDeliveryDate = new Date(record.actualDeliveryDate);
-        if (actualDeliveryDate < deliveryDate) {
+        if (actualDeliveryDate.getTime() < deliveryDate.getTime()) {
           record.isOnTime = true;
         } else {
           record.isOnTime = false;
@@ -128,16 +128,14 @@ const ShipperBusinessReviewPage = (props) => {
       <p>
         <Link to="/dashboard/shippers"> Shippers</Link> / {shipperName}
       </p>
-      <br />
+
       <div className="charts">
         <Grid>
           <Grid.Col span={6}>
-            <h3>On-time delivery</h3> <br />
-            <OnTimeDeliveryChart />
+            <OnTimeDeliveryChart tripsData={tripsData} />
           </Grid.Col>
           <Grid.Col span={6}>
-            <h3>Total trips</h3> <br />
-            <DailyDeliveryCountChart />
+            <DailyDeliveryCountChart tripsData={tripsData} />
           </Grid.Col>
         </Grid>
       </div>
