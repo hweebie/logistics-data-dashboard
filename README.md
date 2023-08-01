@@ -58,17 +58,19 @@ This game was developed as part of my coursework for my Software Engineering Imm
 ## 31 Jul 2023
 
 1. Use fetch method to retrieve data - done
-2. Add lifting state
-3. Use mantine datatable
-4. Add search and date filters on table
-5. Pull shippers via API and visualise in table
-6. Add chart 1
+2. Add lifting state - done
+3. Add chart 1
 
 - build isOnTime logic
 - populate more dummy data
 - use chart.js
 
-7. Add chart 2
+4. Add chart 2
+5. Use mantine datatable
+6. Add search to table
+7. Add sort by date fields to table
+8. Add date filters to table
+9. Pull shippers via API and visualise in table
 
 ## Next steps
 

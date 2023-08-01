@@ -10,7 +10,6 @@ const ShipperBusinessReviewPage = (props) => {
   const shipperID = useParams(); //get shipperID object from param in path
 
   //get shippername by shipper ID to display on page
-  //TODO: get using API
   const getShipperName = () => {
     const tempArray = props.shipperData;
     const result = tempArray.find((item) => item.id === shipperID.id);
@@ -38,12 +37,21 @@ const ShipperBusinessReviewPage = (props) => {
       return;
     } else {
       const data = await res.json(); //data is an object containing records
-
       //push each record into tripsArray
       data.records.forEach(function (record) {
         tripsArray.push(record.fields);
       });
-
+      //add isOnTime field to each object
+      tripsArray.forEach(function (record) {
+        const deliveryDate = new Date(record.deliveryDate);
+        const actualDeliveryDate = new Date(record.actualDeliveryDate);
+        if (actualDeliveryDate < deliveryDate) {
+          record.isOnTime = true;
+        } else {
+          record.isOnTime = false;
+        }
+      });
+      console.log(tripsArray);
       setTripsData(tripsArray); //store retrieved trips in state
     }
   };

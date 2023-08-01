@@ -8,7 +8,7 @@ const TripsTable = (props) => {
       <td>{element.pickupDate}</td>
       <td>{element.deliveryDate}</td>
       <td>{element.actualDeliveryDate}</td>
-      <td>TBA</td>
+      <td>{String(element.isOnTime)}</td>
       <td>{element.origin}</td>
       <td>{element.destination}</td>
       <td>{element.status}</td>
