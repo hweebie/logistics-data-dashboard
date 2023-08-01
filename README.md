@@ -65,10 +65,8 @@ This game was developed as part of my coursework for my Software Engineering Imm
 - use chart.js for charts - done
 
 4. Add chart 2 - done
-5. Charts improvements
-
-- Seed more dummy data - done
-- Adjust range (past 5 days) - done
+5. Charts improvements - seed more dummy data, set range to 5 days - done
+6. Table improvements - use Mantine datatable, add pagination - done
 
 MVP Complete
 
@@ -76,7 +74,8 @@ MVP Complete
 
 1. Table improvements
 
-- Use mantine datatable
+- Use mantine datatable - done
+- Add pagination - done
 - Add search and sort by dates
 - Add filter by actual delivery date
 
