@@ -11,13 +11,20 @@ const ShippersPage = (props) => {
     initialValues: {
       id: "",
       shipperName: "",
-      ContactName: "",
+      contactName: "",
       contactEmail: "",
     },
+    transformValues: (values) => ({
+      id: "randomID",
+      shipperName: values.shipperName,
+      contactName: values.contactName,
+      contactEmail: values.contactEmail,
+    }),
+
     validate: {
       shipperName: (value) =>
         value.length < 2 ? "Shipper Name must have at least 2 letters" : null,
-      ContactName: (value) =>
+      contactName: (value) =>
         value.length == 8 ? "Contact Name must have at least 2 letters" : null,
       //todo: add email validation
     },
@@ -41,16 +48,6 @@ const ShippersPage = (props) => {
     }
   };
 
-  const handleSubmit = (shipperName, ContactName, contactEmail) => {
-    event.preventDefault();
-    //lift state to parent
-
-    const id = 1234; //randomly generate 17 char id
-    console.log(id);
-    props.setShipperData([...shipperData, { name, url, id }]);
-    //TODO: reset form after click handled
-  };
-
   return (
     <>
       <div>
@@ -67,7 +64,14 @@ const ShippersPage = (props) => {
       </div>
       <Modal opened={opened} onClose={close} title="Add Shipper" centered>
         <Box maw={300} mx="auto">
-          <form onSubmit={form.onSubmit(console.log("submitted"), handleError)}>
+          <form
+            onSubmit={form.onSubmit((values) => {
+              console.log(values);
+              props.setShipperData((currentData) => {
+                return [...currentData, values];
+              });
+            }, handleError)}
+          >
             <TextInput
               withAsterisk
               label="Shipper Name"
