@@ -9,37 +9,45 @@ const ShippersPage = (props) => {
   const [opened, { open, close }] = useDisclosure(false);
   const form = useForm({
     initialValues: {
-      name: "",
-      referralCode: "",
       id: "",
+      shipperName: "",
+      ContactName: "",
+      contactEmail: "",
     },
     validate: {
-      name: (value) =>
-        value.length < 2 ? "Name must have at least 2 letters" : null,
-      referralCode: (value) =>
-        value.length == 8 ? "Referral code must be a 6-character code" : null,
+      shipperName: (value) =>
+        value.length < 2 ? "Shipper Name must have at least 2 letters" : null,
+      ContactName: (value) =>
+        value.length == 8 ? "Contact Name must have at least 2 letters" : null,
+      //todo: add email validation
     },
   });
   const handleError = (errors) => {
-    if (errors.name) {
-      notifications.show({ message: "Please fill name field", color: "red" });
-    } else if (errors.referralCode) {
+    if (errors.shipperName) {
       notifications.show({
-        message: "Please input 6-digit referral code",
+        message: "Please fill shipper name field",
+        color: "red",
+      });
+    } else if (errors.contactName) {
+      notifications.show({
+        message: "Please fill contact name field",
+        color: "red",
+      });
+    } else if (errors.contactEmail) {
+      notifications.show({
+        message: "Please fill contact email field",
         color: "red",
       });
     }
   };
 
-  const handleSubmit = (name, referralCode) => {
+  const handleSubmit = (shipperName, ContactName, contactEmail) => {
     event.preventDefault();
     //lift state to parent
-    const url = "	https://dashboard.shipamiga.com/shippers/" + referralCode;
-    console.log(url);
+
     const id = 1234; //randomly generate 17 char id
     console.log(id);
     props.setShipperData([...shipperData, { name, url, id }]);
-
     //TODO: reset form after click handled
   };
 
@@ -62,16 +70,23 @@ const ShippersPage = (props) => {
           <form onSubmit={form.onSubmit(console.log("submitted"), handleError)}>
             <TextInput
               withAsterisk
-              label="Name"
+              label="Shipper Name"
               placeholder="Shipper Name"
-              {...form.getInputProps("name")}
+              {...form.getInputProps("shipperName")}
             />
 
             <TextInput
               withAsterisk
-              label="Referral Code"
-              placeholder="6-character referral code"
-              {...form.getInputProps("referralCode")}
+              label="Contact Name"
+              placeholder="Shipper contact name"
+              {...form.getInputProps("contactName")}
+            />
+
+            <TextInput
+              withAsterisk
+              label="Contact Email"
+              placeholder="Shipper contact email"
+              {...form.getInputProps("contactEmail")}
             />
 
             <Group position="right" mt="md">

@@ -16,13 +16,15 @@ function App() {
   const [shipperData, setShipperData] = useState([
     {
       id: "recjLPXLxSKFtMHGc",
-      name: "Coca Cola",
-      tripsLink: "[URL for trips link]",
+      shipperName: "Coca Cola",
+      contactName: "Angela Cruz",
+      contactEmail: "angela@cocacola.com",
     },
     {
       id: "recRIiu9EgDBYcjFl",
-      name: "Pepsi",
-      tripsLink: "[URL for trips link]",
+      shipperName: "Pepsi",
+      contactName: "Alex Garcia",
+      contactEmail: "alex@pepsi.com",
     },
   ]);
 

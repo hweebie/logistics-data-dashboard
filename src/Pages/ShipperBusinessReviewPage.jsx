@@ -14,7 +14,7 @@ const ShipperBusinessReviewPage = (props) => {
   const getShipperName = () => {
     const tempArray = props.shipperData;
     const result = tempArray.find((item) => item.id === shipperID.id);
-    setShipperName(result.name);
+    setShipperName(result.shipperName);
   };
 
   //get trips for the specific shipper by calling airtable API
