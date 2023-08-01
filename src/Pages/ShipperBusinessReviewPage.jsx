@@ -5,9 +5,8 @@ import { Link, useParams } from "react-router-dom";
 import TripsTable from "../Components/TripsTable";
 
 const ShipperBusinessReviewPage = (props) => {
-  //initialise states
-  const [tripsData, setTripsData] = useState([]); //data for trips table
   const [shipperName, setShipperName] = useState(""); //state for shipperName
+  const [tripsData, setTripsData] = useState([]); //state for trips data
   const shipperID = useParams(); //get shipperID object from param in path
 
   //get shippername by shipper ID to display on page
@@ -45,10 +44,7 @@ const ShipperBusinessReviewPage = (props) => {
         tripsArray.push(record.fields);
       });
 
-      //update tripsData state
-      setTripsData((currentState) => {
-        return [...currentState, ...tripsArray];
-      });
+      setTripsData(tripsArray); //store retrieved trips in state
     }
   };
 
@@ -112,8 +108,8 @@ const ShipperBusinessReviewPage = (props) => {
   // };
 
   useEffect(() => {
-    setTripsData([]);
     getShipperName();
+    setTripsData([]); //clear existing data
     getTripsData();
   }, []);
 
