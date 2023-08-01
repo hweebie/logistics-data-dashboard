@@ -45,9 +45,24 @@ const ShipperBusinessReviewPage = (props) => {
       });
       //add isOnTime boolean to each object
       tripsArray.forEach(function (record) {
-        const deliveryDate = new Date(record.deliveryDate);
-        const actualDeliveryDate = new Date(record.actualDeliveryDate);
-        if (actualDeliveryDate.getTime() < deliveryDate.getTime()) {
+        const dateOptions = {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        };
+        record.deliveryDate = new Date(record.deliveryDate).toLocaleDateString(
+          undefined,
+          dateOptions
+        );
+        record.actualDeliveryDate = new Date(
+          record.actualDeliveryDate
+        ).toLocaleDateString(undefined, dateOptions);
+        record.pickupDate = new Date(record.pickupDate).toLocaleDateString(
+          undefined,
+          dateOptions
+        );
+
+        if (record.actualDeliveryDate < record.deliveryDate) {
           record.isOnTime = true;
         } else {
           record.isOnTime = false;
