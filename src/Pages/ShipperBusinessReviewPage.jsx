@@ -3,6 +3,8 @@ import { Grid } from "@mantine/core";
 import { Link, useParams } from "react-router-dom";
 // import Airtable from "airtable";
 import TripsTable from "../Components/TripsTable";
+import OnTimeDeliveryChart from "../Components/OnTimeDeliveryChart";
+import DailyDeliveryCountChart from "../Components/DailyDeliveryCountChart";
 
 const ShipperBusinessReviewPage = (props) => {
   const [shipperName, setShipperName] = useState(""); //state for shipperName
@@ -41,7 +43,7 @@ const ShipperBusinessReviewPage = (props) => {
       data.records.forEach(function (record) {
         tripsArray.push(record.fields);
       });
-      //add isOnTime field to each object
+      //add isOnTime boolean to each object
       tripsArray.forEach(function (record) {
         const deliveryDate = new Date(record.deliveryDate);
         const actualDeliveryDate = new Date(record.actualDeliveryDate);
@@ -51,7 +53,6 @@ const ShipperBusinessReviewPage = (props) => {
           record.isOnTime = false;
         }
       });
-      console.log(tripsArray);
       setTripsData(tripsArray); //store retrieved trips in state
     }
   };
@@ -132,11 +133,11 @@ const ShipperBusinessReviewPage = (props) => {
         <Grid>
           <Grid.Col span={6}>
             <h3>On-time delivery</h3> <br />
-            Chart 1
+            <OnTimeDeliveryChart />
           </Grid.Col>
           <Grid.Col span={6}>
             <h3>Total trips</h3> <br />
-            Chart 2
+            <DailyDeliveryCountChart />
           </Grid.Col>
         </Grid>
       </div>
