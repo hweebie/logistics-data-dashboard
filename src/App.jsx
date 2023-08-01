@@ -12,8 +12,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-
-  // init shipperdata to prop into shipper biz review page and shipper 
+  // init shipperdata to prop into shipper biz review page and shipper
   const [shipperData, setShipperData] = useState([
     {
       id: "recjLPXLxSKFtMHGc",
@@ -82,7 +81,12 @@ function App() {
             <Route path="/dashboard/home" element={<HomePage />} />
             <Route
               path="/dashboard/shippers"
-              element={<ShippersPage shipperData={shipperData} />}
+              element={
+                <ShippersPage
+                  shipperData={shipperData}
+                  setShipperData={setShipperData}
+                />
+              }
             />
             <Route
               path="/dashboard/shippers/businessreview/:id"

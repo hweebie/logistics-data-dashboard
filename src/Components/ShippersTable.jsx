@@ -11,9 +11,7 @@ const ShippersTable = (props) => {
       <td>
         {
           <Link to={`/dashboard/shippers/businessreview/${element.id}`}>
-            <Button compact variant="outline">
-              {`Business review`}
-            </Button>
+            <Button variant="outline">{`Business review`}</Button>
           </Link>
         }
       </td>
