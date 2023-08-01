@@ -65,6 +65,10 @@ This game was developed as part of my coursework for my Software Engineering Imm
 - use chart.js for charts - done
 
 4. Add chart 2 - done
+5. Charts improvements
+
+- Seed more dummy data - done
+- Adjust range (past 5 days) - done
 
 MVP Complete
 

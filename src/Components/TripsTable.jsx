@@ -1,37 +1,30 @@
 import React from "react";
-import { Table } from "@mantine/core";
+import { DataTable } from "mantine-datatable";
 
 const TripsTable = (props) => {
-  const rows = props.tripsData.map((element) => (
-    <tr key={element.recordId}>
-      <td>{element.recordId}</td>
-      <td>{element.pickupDate}</td>
-      <td>{element.deliveryDate}</td>
-      <td>{element.actualDeliveryDate}</td>
-      <td>{String(element.isOnTime)}</td>
-      <td>{element.origin}</td>
-      <td>{element.destination}</td>
-      <td>{element.status}</td>
-    </tr>
-  ));
+  // format tripsData to convert isOnTime value to string for display
+  const formattedTripsData = props.tripsData.map((trip) => ({
+    ...trip,
+    isOnTime: trip.isOnTime ? "True" : "False",
+  }));
 
   return (
-    <Table>
-      <thead>
-        <tr>
-          <th>Reference No.</th>
-          <th>Pick up date</th>
-          <th>Requested delivery date</th>
-          <th>Actual delivery date</th>
-          <th>Is on time?</th>
-          {/* ^ todo: add this */}
-          <th>Origin</th>
-          <th>Destination</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </Table>
+    <DataTable
+      columns={[
+        { accessor: "recordId" },
+        { accessor: "pickupDate" },
+        { accessor: "deliveryDate" },
+        { accessor: "actualDeliveryDate" },
+        {
+          accessor: "isOnTime",
+          title: "Is On Time",
+        },
+        { accessor: "origin" },
+        { accessor: "destination" },
+        { accessor: "status" },
+      ]}
+      records={formattedTripsData}
+    />
   );
 };
 
