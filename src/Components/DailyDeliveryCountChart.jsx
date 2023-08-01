@@ -35,32 +35,38 @@ const DailyDeliveryCountChart = (props) => {
     },
   };
 
-  // Step 1: Use reduce to create an object with date counts
+  //Calculate daily delivery count by actual delivery date
+  //use reduce to create an object with date counts
   const dateCounts = props.tripsData.reduce((acc, record) => {
     const { actualDeliveryDate } = record;
     acc[actualDeliveryDate] = (acc[actualDeliveryDate] || 0) + 1;
     return acc;
   }, {});
 
-  // Step 2: Convert the object to an array of objects with date and count
+  //convert the object to an array of objects with date and count
   let dataArray = Object.entries(dateCounts).map(([date, count]) => ({
     date,
     count,
   }));
 
-  //Sort by date in ascending order
+  //sort by date in ascending order
   dataArray = dataArray.sort((recordA, recordB) => {
     const dateA = new Date(recordA.date);
     const dateB = new Date(recordB.date);
     return dateA - dateB;
   });
 
+  //adjust array to show 5 most recent dates
+  const numDatesToShow = 5;
+  const startIndex = Math.max(0, dataArray.length - numDatesToShow);
+  const recentDataArray = dataArray.slice(startIndex);
+
   const data = {
-    labels: dataArray.map((row) => row.date),
+    labels: recentDataArray.map((row) => row.date),
     datasets: [
       {
         label: "Count of trips",
-        data: dataArray.map((row) => row.count),
+        data: recentDataArray.map((row) => row.count),
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },

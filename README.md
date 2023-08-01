@@ -73,13 +73,14 @@ MVP Complete
 1. Table improvements
 
 - Use mantine datatable
-- Add search to table
-- Add filter by date fields to table
+- Add search and sort by dates
+- Add filter by actual delivery date
 
 2. Charts improvements
 
-- Seed more dummy data
-- Adjust range (past 7 days)
+- Seed more dummy data - done
+- Adjust range (past 5 days) - done
+- Bugfix: X-axis should have specific date intervals, even if there are no data points for some dates
 
 3. Stretch goals
 
