@@ -8,9 +8,10 @@ const ShipperBusinessReviewPage = (props) => {
   //initialise states
   const [tripsData, setTripsData] = useState([]); //data for trips table
   const [shipperName, setShipperName] = useState(""); //state for shipperName
+  const shipperID = useParams(); //get shipperID object from param in path
 
   //get shippername by shipper ID to display on page
-  const shipperID = useParams(); //use param in path
+  //TODO: get using API
   const getShipperName = () => {
     const tempArray = props.shipperData;
     const result = tempArray.find((item) => item.id === shipperID.id);
@@ -21,15 +22,15 @@ const ShipperBusinessReviewPage = (props) => {
   const getTripsData = async () => {
     const tripsArray = [];
     const res = await fetch(
-      "https://api.airtable.com/v0/appPYAMvKJeeoDs8Y/Trips%20(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=contractorName&fields%5B%5D=contractorId&fields%5B%5D=recordId&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&filterByFormula=(%7BclientId%7D+%3D+%22recjLPXLxSKFtMHGc%22)&sort%5B0%5D%5Bfield%5D=deliveryDate&sort%5B0%5D%5Bdirection%5D=desc",
+      "https://api.airtable.com/v0/appPYAMvKJeeoDs8Y/Trips%20(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=contractorName&fields%5B%5D=contractorId&fields%5B%5D=recordId&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&filterByFormula=(%7BclientId%7D+%3D+%22" +
+        shipperID.id +
+        "%22)&sort%5B0%5D%5Bfield%5D=deliveryDate&sort%5B0%5D%5Bdirection%5D=desc",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json", //tells server what kind of data we're sending over
           Authorization:
             "Bearer patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c",
-          //todo: add API key
-          // "patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c", //TODO: store elsewhere
         },
       }
     );
@@ -38,7 +39,7 @@ const ShipperBusinessReviewPage = (props) => {
       return;
     } else {
       const data = await res.json(); //data is an object containing records
-      
+
       //push each record into tripsArray
       data.records.forEach(function (record) {
         tripsArray.push(record.fields);

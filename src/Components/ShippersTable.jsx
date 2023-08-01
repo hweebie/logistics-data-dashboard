@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ShippersTable = (props) => {
   const rows = props.shipperData.map((element) => (
-    <tr key={element.name}>
+    <tr key={element.id}>
       <td>{element.name}</td>
       <td>{element.tripsLink}</td>
       <td>

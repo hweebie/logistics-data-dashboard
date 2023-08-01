@@ -12,6 +12,8 @@ import {
 } from "react-router-dom";
 
 function App() {
+
+  // init shipperdata to prop into shipper biz review page and shipper 
   const [shipperData, setShipperData] = useState([
     {
       id: "recjLPXLxSKFtMHGc",
