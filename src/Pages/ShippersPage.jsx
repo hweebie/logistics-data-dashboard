@@ -7,6 +7,7 @@ import { notifications } from "@mantine/notifications";
 
 const ShippersPage = (props) => {
   const [opened, { open, close }] = useDisclosure(false);
+
   const form = useForm({
     initialValues: {
       id: "",
@@ -15,7 +16,7 @@ const ShippersPage = (props) => {
       contactEmail: "",
     },
     transformValues: (values) => ({
-      id: "randomID",
+      id: randomString,
       shipperName: values.shipperName,
       contactName: values.contactName,
       contactEmail: values.contactEmail,
@@ -30,6 +31,7 @@ const ShippersPage = (props) => {
         /^\S+@\S+$/.test(value) ? null : "Invalid email",
     },
   });
+
   const handleError = (errors) => {
     if (errors.shipperName) {
       notifications.show({
@@ -48,6 +50,20 @@ const ShippersPage = (props) => {
       });
     }
   };
+
+  //generate random string to use as new shipper ID
+  function generateRandomString(length) {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charactersLength);
+      result += characters.charAt(randomIndex);
+    }
+    return result;
+  }
+  const randomString = generateRandomString(17);
 
   return (
     <>
