@@ -25,8 +25,9 @@ const ShippersPage = (props) => {
       shipperName: (value) =>
         value.length < 2 ? "Shipper Name must have at least 2 letters" : null,
       contactName: (value) =>
-        value.length == 8 ? "Contact Name must have at least 2 letters" : null,
-      //todo: add email validation
+        value.length < 2 ? "Contact Name must have at least 2 letters" : null,
+      contactEmail: (value) =>
+        /^\S+@\S+$/.test(value) ? null : "Invalid email",
     },
   });
   const handleError = (errors) => {
