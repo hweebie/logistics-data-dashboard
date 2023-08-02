@@ -1,7 +1,7 @@
 import { DataTable } from "mantine-datatable";
 import { Box, Badge, TextInput, Grid } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
-import { IconSearch } from "@tabler/icons-react";
+import { IconSearch, IconFilter } from "@tabler/icons-react";
 import sortBy from "lodash/sortBy";
 import dayjs from "dayjs";
 import { useDebouncedValue } from "@mantine/hooks";
@@ -51,13 +51,15 @@ const TripsTable = (props) => {
     setRecords(formattedTripsData.slice(from, to));
   }, [page]);
 
-  //update data when user searches by recordId
+  //update data when user searches by reference
   useEffect(() => {
     setRecords(
-      formattedTripsData.filter(({ recordId, deliveryDate }) => {
+      formattedTripsData.filter(({ clientReference, deliveryDate }) => {
         if (
           debouncedQuery !== "" &&
-          !`${recordId}`.includes(debouncedQuery.trim())
+          !`${clientReference}`
+            .toLowerCase()
+            .includes(debouncedQuery.trim().toLowerCase())
         ) {
           return false;
         }
@@ -79,9 +81,10 @@ const TripsTable = (props) => {
   return (
     <>
       <Grid>
-        <Grid.Col span={4}>
+        <Grid.Col span={3}>
           <TextInput
-            placeholder="Search using recordId..."
+            clearable
+            placeholder="Search using Reference No..."
             icon={<IconSearch size={16} />}
             value={query}
             onChange={(e) => setQuery(e.currentTarget.value)}
@@ -91,6 +94,7 @@ const TripsTable = (props) => {
           <DatePickerInput
             clearable
             type="range"
+            icon={<IconFilter size={16} />}
             maxDate={new Date()}
             placeholder="Required delivery date range"
             value={deliveryDateSearchRange}
@@ -99,6 +103,7 @@ const TripsTable = (props) => {
             maw={400}
           />
         </Grid.Col>
+        <Grid.Col span={3}></Grid.Col>
       </Grid>
       <br />
       <Box sx={{ height: 300 }}>
@@ -109,7 +114,7 @@ const TripsTable = (props) => {
           striped
           records={records}
           columns={[
-            { accessor: "recordId", title: "Reference no.", key: "idx" },
+            { accessor: "clientReference", title: "Reference No.", key: "idx" },
             { accessor: "pickupDate", sortable: true },
             {
               accessor: "deliveryDate",

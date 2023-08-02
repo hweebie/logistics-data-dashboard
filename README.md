@@ -46,41 +46,41 @@ Shipper Overview - View all your shippers in one page
 
 ## 31 Jul 2023
 
-1. Create readme 
+1. Create readme
 2. Basic website layout using mantine
 3. Build Shipper and business review pages
 4. Add routes
 5. Add shipper-specific routes
 6. Set up trips data in airtable
-7. Fetch trips data of shipper and display in shipper biz dashboard 
-8. Show trips data in table 
+7. Fetch trips data of shipper and display in shipper biz dashboard
+8. Show trips data in table
 
 ## 1 Aug 2023
 
-1. Use fetch method to retrieve data 
-2. Add lifting state 
+1. Use fetch method to retrieve data
+2. Add lifting state
 3. Add charts
-4. Build isOnTime logic 
-5. Use chart.js for charts 
-6. Charts improvements - seed more dummy data, set range to 5 days 
-7. Table improvements - use Mantine datatable, add pagination 
+4. Build isOnTime logic
+5. Use chart.js for charts
+6. Charts improvements - seed more dummy data, set range to 5 days
+7. Table improvements - use Mantine datatable, add pagination
 
 MVP Complete
 
 ## 2 Aug 2023
 
-1. Move API url and key to env 
-2. Add search functionality to table
-3. Daily Delivery Chart: Update Y-axis to show only integers 
-4. Format statuses in trips table
+1. Move API url and key to env
+2. Format statuses in trips table
+3. Daily Delivery Chart: Update Y-axis to show only integers
+4. Add search functionality to table
+5. Add date filter to trips table
+6. Change recordId to clientReference
 
 ## Next steps
 
 Debug issues
 
-- Table: filter by actual delivery date
 - Table: Add sort by dates
-- Table: User should be able to search entire dataset, not just within the page
 - Chart: X-axis should have specific date intervals, even if there are no data points for some dates
 
 Stretch goals
