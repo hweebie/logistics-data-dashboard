@@ -33,6 +33,13 @@ const DailyDeliveryCountChart = (props) => {
         text: "Total actual deliveries per day",
       },
     },
+    scales: {
+      y: {
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
   };
 
   //Calculate daily delivery count by actual delivery date

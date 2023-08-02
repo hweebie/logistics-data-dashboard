@@ -83,7 +83,6 @@ const ShippersPage = (props) => {
         <Box maw={300} mx="auto">
           <form
             onSubmit={form.onSubmit((values) => {
-              console.log(values);
               props.setShipperData((currentData) => {
                 return [...currentData, values];
               });
