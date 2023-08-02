@@ -87,11 +87,12 @@ const TripsTable = (props) => {
             onChange={(e) => setQuery(e.currentTarget.value)}
           />
         </Grid.Col>
-        <Grid.Col span={4}>
+        <Grid.Col span={6}>
           <DatePickerInput
+            clearable
             type="range"
             maxDate={new Date()}
-            placeholder="Pick dates range"
+            placeholder="Required delivery date range"
             value={deliveryDateSearchRange}
             onChange={setDeliveryDateSearchRange}
             mx="auto"
@@ -110,7 +111,11 @@ const TripsTable = (props) => {
           columns={[
             { accessor: "recordId", title: "Reference no.", key: "idx" },
             { accessor: "pickupDate", sortable: true },
-            { accessor: "deliveryDate", sortable: true },
+            {
+              accessor: "deliveryDate",
+              title: "Required Delivery Date",
+              sortable: true,
+            },
             { accessor: "actualDeliveryDate", sortable: true },
             {
               accessor: "isOnTime",
