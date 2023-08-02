@@ -5,7 +5,6 @@ import { IconSearch } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { useDebouncedValue } from "@mantine/hooks";
 import { React, useEffect, useState } from "react";
-import sortBy from "lodash/sortBy";
 
 const TripsTable = (props) => {
   //for table pagination
@@ -13,14 +12,17 @@ const TripsTable = (props) => {
   const [formattedTripsData, setFormattedTripData] = useState([]);
   const [page, setPage] = useState(1);
   const [records, setRecords] = useState([]);
+
   //for search
   const [query, setQuery] = useState("");
   const [debouncedQuery] = useDebouncedValue(query, 200);
-  //for sorting. defaults to sort by deliveryDate desc
-  const [sortStatus, setSortStatus] = useState({
-    column: "name",
-    direction: "asc",
-  });
+
+  //for date range
+  const [value, setValue] =
+    useState < [Date | null, Date | null] > [null, null];
+  //Getting error for this line:
+  //Uncaught TypeError: boolean false is not iterable
+  //(cannot read property Symbol(Symbol.iterator))
 
   //formats isOnTime when trips data is propped
   useEffect(() => {
@@ -68,25 +70,6 @@ const TripsTable = (props) => {
     );
   }, [debouncedQuery]);
 
-  //update data when user sorts
-  useEffect(() => {
-    console.log("sorted");
-    const sortedRecords = [...records].sort((a, b) => {
-      const aValue = a[sortStatus.column];
-      const bValue = b[sortStatus.column];
-
-      if (aValue < bValue) {
-        return sortStatus.direction === "asc" ? -1 : 1;
-      }
-      if (aValue > bValue) {
-        return sortStatus.direction === "asc" ? 1 : -1;
-      }
-      return 0;
-    });
-
-    setRecords(sortedRecords);
-  }, [sortStatus]);
-
   return (
     <>
       <Grid>
@@ -98,7 +81,17 @@ const TripsTable = (props) => {
             onChange={(e) => setQuery(e.currentTarget.value)}
           />
         </Grid.Col>
-        <Grid.Col span={4}>{/* TODO: add date filter */}</Grid.Col>
+        <Grid.Col span={4}>
+          <DatePickerInput
+            type="range"
+            label="Pick dates range"
+            placeholder="Pick dates range"
+            value={value}
+            onChange={setValue}
+            mx="auto"
+            maw={400}
+          />
+        </Grid.Col>
       </Grid>
       <br />
       <Box sx={{ height: 300 }}>
@@ -134,9 +127,6 @@ const TripsTable = (props) => {
           paginationText={({ from, to, totalRecords }) =>
             `Records ${from} - ${to} of ${totalRecords}`
           }
-          //handle sort status
-          sortStatus={sortStatus}
-          onSortStatusChange={setSortStatus}
         />
       </Box>
     </>
