@@ -27,15 +27,10 @@ Shipper Overview - View all your shippers in one page
 
 - Todo: Add deployment URL
 
-# Version History
-
-- [v1.0.0][1] - First version
-
-[1]: ...
-
 # Next Steps
 
 - More charts
+- More filters
 
 # Credits and references
 
@@ -51,44 +46,42 @@ Shipper Overview - View all your shippers in one page
 
 ## 31 Jul 2023
 
-1. Create readme - done
-2. Basic website layout using mantine - done
-3. Build Shipper and business review pages - done
-4. Add routes - done
-5. Add shipper-specific routes - done
-6. Set up trips data in airtable - done
-7. Fetch trips data of shipper and display in shipper biz dashboard - done
-8. Show trips data in table - done
+1. Create readme 
+2. Basic website layout using mantine
+3. Build Shipper and business review pages
+4. Add routes
+5. Add shipper-specific routes
+6. Set up trips data in airtable
+7. Fetch trips data of shipper and display in shipper biz dashboard 
+8. Show trips data in table 
 
 ## 1 Aug 2023
 
-1. Use fetch method to retrieve data - done
-2. Add lifting state - done
-3. Add chart 1 - done
-
-- build isOnTime logic - done
-- use chart.js for charts - done
-
-4. Add chart 2 - done
-5. Charts improvements - seed more dummy data, set range to 5 days - done
-6. Table improvements - use Mantine datatable, add pagination - done
+1. Use fetch method to retrieve data 
+2. Add lifting state 
+3. Add charts
+4. Build isOnTime logic 
+5. Use chart.js for charts 
+6. Charts improvements - seed more dummy data, set range to 5 days 
+7. Table improvements - use Mantine datatable, add pagination 
 
 MVP Complete
 
 ## 2 Aug 2023
 
-1. Move API url and key to env - done
-2. Add search functionality to table - done
-3. Daily Delivery Chart: Update Y-axis to no decimal pts - done
-4. Table: Format status - done
-5. Debug issues
+1. Move API url and key to env 
+2. Add search functionality to table
+3. Daily Delivery Chart: Update Y-axis to show only integers 
+4. Format statuses in trips table
+
+## Next steps
+
+Debug issues
 
 - Table: filter by actual delivery date
 - Table: Add sort by dates
 - Table: User should be able to search entire dataset, not just within the page
 - Chart: X-axis should have specific date intervals, even if there are no data points for some dates
-
-## Next steps
 
 Stretch goals
 
