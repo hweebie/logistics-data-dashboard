@@ -9,11 +9,11 @@ This game was developed as part of my coursework for my Software Engineering Imm
 # Screenshots
 
 Shipper Overview - View all your shippers in one page
-<img src="./Assets/Screen1.png">
+<img src="./assets/Screen1.png">
 
 3PL users can use shipper-specific data dashboard to run business reviews with their Shippers
-<img src="./Assets/Screen2.png">
-<img src="./Assets/Screen3.png">
+<img src="./assets/Screen2.png">
+<img src="./assets/Screen3.png">
 
 # Technologies Used
 
