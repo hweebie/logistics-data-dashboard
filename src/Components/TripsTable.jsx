@@ -18,7 +18,7 @@ const TripsTable = (props) => {
   const [debouncedQuery] = useDebouncedValue(query, 200);
 
   //for date range
-  const [value, setValue] =
+  const [deliveryDateSearchRange, setDeliveryDateSearchRange] =
     useState < [Date | null, Date | null] > [null, null];
   //Getting error for this line:
   //Uncaught TypeError: boolean false is not iterable
@@ -64,11 +64,20 @@ const TripsTable = (props) => {
         ) {
           return false;
         }
+        if (
+          deliveryDateSearchRange &&
+          deliveryDateSearchRange[0] &&
+          deliveryDateSearchRange[1] &&
+          (dayjs(deliveryDateSearchRange[0]).isAfter(deliveryDate, "day") ||
+            dayjs(deliveryDateSearchRange[1]).isBefore(deliveryDate, "day"))
+        ) {
+          return false;
+        }
 
         return true;
       })
     );
-  }, [debouncedQuery]);
+  }, [debouncedQuery, deliveryDateSearchRange]);
 
   return (
     <>
@@ -86,8 +95,8 @@ const TripsTable = (props) => {
             type="range"
             label="Pick dates range"
             placeholder="Pick dates range"
-            value={value}
-            onChange={setValue}
+            value={deliveryDateSearchRange}
+            onChange={setDeliveryDateSearchRange}
             mx="auto"
             maw={400}
           />
