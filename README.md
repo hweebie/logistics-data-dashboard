@@ -72,10 +72,11 @@ MVP Complete
 
 ## 2 Aug 2023
 
-1. Move API url and key to env
+1. Move API url and key to env - done
 2. Table improvements
 
-- Add search and sort by dates
+- Add search - done
+- Add sort by dates
 - Add filter by actual delivery date
 
 3. Charts improvements

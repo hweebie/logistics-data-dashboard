@@ -159,7 +159,6 @@ const ShipperBusinessReviewPage = (props) => {
       <br />
       <div className="trip-data">
         <h2>Trips</h2>
-        <p>Search bar, date filter</p>
         <TripsTable tripsData={tripsData}></TripsTable>
       </div>
     </div>
