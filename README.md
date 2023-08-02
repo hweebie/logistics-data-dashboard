@@ -8,7 +8,12 @@ This game was developed as part of my coursework for my Software Engineering Imm
 
 # Screenshots
 
-<img src="XXX">
+Shipper Overview - View all your shippers in one page
+<img src="./Assets/Screen1.png">
+
+3PL users can use shipper-specific data dashboard to run business reviews with their Shippers
+<img src="./Assets/Screen2.png">
+<img src="./Assets/Screen3.png">
 
 # Technologies Used
 
@@ -77,7 +82,8 @@ MVP Complete
 3. Daily Delivery Chart: Update Y-axis to no decimal pts - done
 4. Table: Format status - done
 5. Debug issues
-- Table: filter by actual delivery date 
+
+- Table: filter by actual delivery date
 - Table: Add sort by dates
 - Table: User should be able to search entire dataset, not just within the page
 - Chart: X-axis should have specific date intervals, even if there are no data points for some dates
