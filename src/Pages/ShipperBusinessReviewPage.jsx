@@ -22,21 +22,22 @@ const ShipperBusinessReviewPage = (props) => {
   const getTripsData = async () => {
     const tripsArray = [];
     const res = await fetch(
-      "https://api.airtable.com/v0/appPYAMvKJeeoDs8Y/Trips%20(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=contractorName&fields%5B%5D=contractorId&fields%5B%5D=recordId&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&filterByFormula=(%7BclientId%7D+%3D+%22" +
+      import.meta.env.VITE_SERVER +
+        "appPYAMvKJeeoDs8Y/Trips%20(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=contractorName&fields%5B%5D=contractorId&fields%5B%5D=recordId&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&filterByFormula=(%7BclientId%7D+%3D+%22" +
         shipperID.id +
         "%22)&sort%5B0%5D%5Bfield%5D=deliveryDate&sort%5B0%5D%5Bdirection%5D=desc",
+      // ^ retrieves fields needed for display, filters by clientId
       {
         method: "GET",
         headers: {
-          "Content-Type": "application/json", //tells server what kind of data we're sending over
-          Authorization:
-            "Bearer patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c",
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + import.meta.env.VITE_API_KEY,
         },
       }
     );
     if (res.status !== 200) {
-      console.error(err);
-      return;
+      const errorMessage = await res.text();
+      throw new Error(`API Error: ${res.status} - ${errorMessage}`);
     } else {
       const data = await res.json(); //data is an object containing records
       //push each record into tripsArray
@@ -50,6 +51,7 @@ const ShipperBusinessReviewPage = (props) => {
           month: "short",
           day: "numeric",
         };
+        //format date fields
         record.deliveryDate = new Date(record.deliveryDate).toLocaleDateString(
           undefined,
           dateOptions
@@ -61,25 +63,25 @@ const ShipperBusinessReviewPage = (props) => {
           undefined,
           dateOptions
         );
-
+        //determine and store isOnTime in field
         if (record.actualDeliveryDate <= record.deliveryDate) {
           record.isOnTime = true;
         } else {
           record.isOnTime = false;
         }
       });
-      setTripsData(tripsArray); //store retrieved trips in state
+      setTripsData(tripsArray); //store retrieved trips
     }
   };
 
-  // //get trips for the specific shipper by using airtable.js library
+  // Another way: get trips for the specific shipper by using airtable.js library
   // const getTripsData = () => {
   //   const tripsArray = [];
 
   //   Airtable.configure({
   //     endpointUrl: "https://api.airtable.com",
   //     apiKey:
-  //       "patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c", //TODO: store elsewhere
+  //       "patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c",
   //   });
   //   var base = Airtable.base("appPYAMvKJeeoDs8Y");
 

@@ -55,7 +55,7 @@ This game was developed as part of my coursework for my Software Engineering Imm
 7. Fetch trips data of shipper and display in shipper biz dashboard - done
 8. Show trips data in table - done
 
-## 31 Jul 2023
+## 1 Aug 2023
 
 1. Use fetch method to retrieve data - done
 2. Add lifting state - done
@@ -70,22 +70,22 @@ This game was developed as part of my coursework for my Software Engineering Imm
 
 MVP Complete
 
-## Next steps
+## 2 Aug 2023
 
-1. Table improvements
+1. Move API url and key to env
+2. Table improvements
 
-- Use mantine datatable - done
-- Add pagination - done
 - Add search and sort by dates
 - Add filter by actual delivery date
 
-2. Charts improvements
+3. Charts improvements
 
-- Seed more dummy data - done
-- Adjust range (past 5 days) - done
+- Update Y-axis to no decimal pts
 - Bugfix: X-axis should have specific date intervals, even if there are no data points for some dates
 
-3. Stretch goals
+## Next steps
+
+Stretch goals
 
 - Write unit tests
 - Use D3 for charts

@@ -9,13 +9,16 @@ const TripsTable = (props) => {
     isOnTime: trip.isOnTime ? "True" : "False",
   }));
 
-  const pageSize = 15;
+  const PAGE_SIZE = 15;
+
   const [page, setPage] = useState(1);
-  const [records, setRecords] = useState(formattedTripsData.slice(0, pageSize));
+  const [records, setRecords] = useState(
+    formattedTripsData.slice(0, PAGE_SIZE)
+  );
 
   useEffect(() => {
-    const from = (page - 1) * pageSize;
-    const to = from + pageSize;
+    const from = (page - 1) * PAGE_SIZE;
+    const to = from + PAGE_SIZE;
     setRecords(formattedTripsData.slice(from, to));
   }, [page]);
 
@@ -26,6 +29,7 @@ const TripsTable = (props) => {
         shadow="sm"
         withColumnBorders
         striped
+        records={records}
         columns={[
           { accessor: "recordId", key: "recordId" },
           { accessor: "pickupDate" },
@@ -39,9 +43,8 @@ const TripsTable = (props) => {
           { accessor: "destination" },
           { accessor: "status" },
         ]}
-        records={records}
         totalRecords={formattedTripsData.length}
-        recordsPerPage={pageSize}
+        recordsPerPage={PAGE_SIZE}
         page={page}
         onPageChange={(p) => setPage(p)}
         //display loading text when loading
