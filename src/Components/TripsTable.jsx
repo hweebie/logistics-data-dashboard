@@ -2,6 +2,7 @@ import { DataTable } from "mantine-datatable";
 import { Box, Badge, TextInput, Grid } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import { IconSearch } from "@tabler/icons-react";
+import sortBy from "lodash/sortBy";
 import dayjs from "dayjs";
 import { useDebouncedValue } from "@mantine/hooks";
 import { React, useEffect, useState } from "react";
@@ -18,11 +19,7 @@ const TripsTable = (props) => {
   const [debouncedQuery] = useDebouncedValue(query, 200);
 
   //for date range
-  const [deliveryDateSearchRange, setDeliveryDateSearchRange] =
-    useState < [Date | null, Date | null] > [null, null];
-  //Getting error for this line:
-  //Uncaught TypeError: boolean false is not iterable
-  //(cannot read property Symbol(Symbol.iterator))
+  const [deliveryDateSearchRange, setDeliveryDateSearchRange] = useState();
 
   //formats isOnTime when trips data is propped
   useEffect(() => {
@@ -57,7 +54,7 @@ const TripsTable = (props) => {
   //update data when user searches by recordId
   useEffect(() => {
     setRecords(
-      formattedTripsData.filter(({ recordId }) => {
+      formattedTripsData.filter(({ recordId, deliveryDate }) => {
         if (
           debouncedQuery !== "" &&
           !`${recordId}`.includes(debouncedQuery.trim())
@@ -93,7 +90,7 @@ const TripsTable = (props) => {
         <Grid.Col span={4}>
           <DatePickerInput
             type="range"
-            label="Pick dates range"
+            maxDate={new Date()}
             placeholder="Pick dates range"
             value={deliveryDateSearchRange}
             onChange={setDeliveryDateSearchRange}
