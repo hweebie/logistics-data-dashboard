@@ -74,13 +74,13 @@ MVP Complete
 
 1. Move API url and key to env - done
 2. Add search functionality to table - done
-3. Add filter by actual delivery date - in progress
-4. Debug issues
+3. Daily Delivery Chart: Update Y-axis to no decimal pts - done
+4. Table: Format status
+5. Add filter by actual delivery date - in progress
+6. Debug issues
 
 - Table: Add sort by dates
 - Table: User should be able to search entire dataset, not just within the page
-- Table: Format status
-- Chart: Update Y-axis to no decimal pts
 - Chart: X-axis should have specific date intervals, even if there are no data points for some dates
 
 ## Next steps

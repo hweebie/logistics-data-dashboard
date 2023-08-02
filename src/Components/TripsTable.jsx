@@ -1,5 +1,5 @@
 import { DataTable } from "mantine-datatable";
-import { Box, Button, TextInput, Grid } from "@mantine/core";
+import { Box, Badge, TextInput, Grid } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import { IconSearch } from "@tabler/icons-react";
 import dayjs from "dayjs";
@@ -27,6 +27,17 @@ const TripsTable = (props) => {
     const array = props.tripsData.map((trip, idx) => ({
       ...trip,
       isOnTime: trip.isOnTime ? "True" : "False",
+      status:
+        trip.status === "completed" ? (
+          <Badge color="lime">Completed</Badge>
+        ) : trip.status === "booked" ? (
+          <Badge>Booked</Badge>
+        ) : trip.status === "ongoing" ? (
+          <Badge color="yellow">Ongoing</Badge>
+        ) : (
+          trip.status
+        ),
+
       idx: idx,
     }));
     setFormattedTripData(array);
@@ -59,6 +70,7 @@ const TripsTable = (props) => {
 
   //update data when user sorts
   useEffect(() => {
+    console.log("sorted");
     const sortedRecords = [...records].sort((a, b) => {
       const aValue = a[sortStatus.column];
       const bValue = b[sortStatus.column];
@@ -86,7 +98,7 @@ const TripsTable = (props) => {
             onChange={(e) => setQuery(e.currentTarget.value)}
           />
         </Grid.Col>
-        <Grid.Col span={4}>TBA: Date picker</Grid.Col>
+        <Grid.Col span={4}>{/* TODO: add date filter */}</Grid.Col>
       </Grid>
       <br />
       <Box sx={{ height: 300 }}>

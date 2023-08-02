@@ -33,6 +33,13 @@ const OnTimeDeliveryChart = (props) => {
         display: true,
         text: "On-time deliveries by requested delivery date",
       },
+      scales: {
+        x: {
+          ticks: {
+            stepSize: 1, //set tick interval on x-axis as 1
+          },
+        },
+      },
     },
   };
 
