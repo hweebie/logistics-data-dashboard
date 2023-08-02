@@ -73,16 +73,14 @@ MVP Complete
 ## 2 Aug 2023
 
 1. Move API url and key to env - done
-2. Table improvements
+2. Add search functionality to table - done
+3. Add filter by actual delivery date - in progress
+4. Debug issues
 
-- Add search - done
-- Add sort by dates
-- Add filter by actual delivery date
-
-3. Charts improvements
-
-- Update Y-axis to no decimal pts
-- Bugfix: X-axis should have specific date intervals, even if there are no data points for some dates
+- Table: Add sort by dates
+- Table: User should be able to search entire dataset, not just within the page
+- Chart: Update Y-axis to no decimal pts
+- Chart: X-axis should have specific date intervals, even if there are no data points for some dates
 
 ## Next steps
 
