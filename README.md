@@ -79,6 +79,7 @@ MVP Complete
 
 - Table: Add sort by dates
 - Table: User should be able to search entire dataset, not just within the page
+- Table: Format status
 - Chart: Update Y-axis to no decimal pts
 - Chart: X-axis should have specific date intervals, even if there are no data points for some dates
 
