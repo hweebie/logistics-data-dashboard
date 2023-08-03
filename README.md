@@ -39,7 +39,7 @@ Features:
 
 - [Check out the Demo site][1]
 
-[1]: https://forward-data-dashboard-demo.netlify.app/dashboard/home
+[1]: https://forward-data-dashboard-demo.netlify.app
 
 # Future development
 
