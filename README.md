@@ -8,12 +8,20 @@ This game was developed as part of my coursework for my Software Engineering Imm
 
 # Screenshots
 
-Shipper Overview - View all your shippers in one page
-<img src="./src/assets/Screen1.png">
+Homepage
+<img src="./src/assets/ReadmeScreen1.png">
+Shipper Overview - View and manage all shippers in one page
+<img src="./src/assets/ReadmeScreen2.png">
+<img src="./src/assets/ReadmeScreen3.png">
 
 3PL users can use shipper-specific data dashboard to run business reviews with their Shippers
-<img src="./src/assets/Screen2.png">
-<img src="./src/assets/Screen3.png">
+###Features:
+
+- Charts showing key business metrics with 7-day data lookback
+- Data table: search, sort, date filters
+  <img src="./src/assets/ReadmeScreen4.png">
+  <img src="./src/assets/ReadmeScreen5.png">
+  <img src="./src/assets/ReadmeScreen6.png">
 
 # Technologies Used
 
