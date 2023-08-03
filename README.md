@@ -14,7 +14,7 @@ Shipper Overview - View and manage all shippers in one page
 <img src="./src/assets/ReadmeScreen2.png">
 <img src="./src/assets/ReadmeScreen3.png">
 
-3PL users can use shipper-specific data dashboard to run business reviews with their Shippers
+3PL users can click into each Shipper's Business Review Dashboard, which automatically generates charts and data that can be used to run business reviews with their Shippers
 
 Features:
 
