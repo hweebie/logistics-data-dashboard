@@ -23,7 +23,7 @@ Features:
   <img src="./src/assets/ReadmeScreen4.png">
 - User can search for specific records using Reference No. 
   <img src="./src/assets/ReadmeScreen5.png">
-- User can filter data table by expected delivery date 
+- User can filter data table by required delivery date 
   <img src="./src/assets/ReadmeScreen6.png">
 
 # Technologies Used
