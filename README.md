@@ -14,14 +14,16 @@ Shipper Overview - View and manage all shippers in one page
 <img src="./src/assets/ReadmeScreen2.png">
 <img src="./src/assets/ReadmeScreen3.png">
 
-3PL users can use shipper-specific data dashboard to run business reviews with their Shippers
+3PL users can click into each Shipper's Business Review Dashboard, which automatically generates charts and data that can be used to run business reviews with their Shippers
 
 Features:
 
-- Charts showing key business metrics with 7-day data lookback
-- Data table: search, sort, date filters
+- Charts showing key business metrics with 7-day lookback
+- Data table which shows all records. Records can be sorted by date fields
   <img src="./src/assets/ReadmeScreen4.png">
+- User can search for specific records using Reference No. 
   <img src="./src/assets/ReadmeScreen5.png">
+- User can filter data table by required delivery date 
   <img src="./src/assets/ReadmeScreen6.png">
 
 # Technologies Used
@@ -37,21 +39,22 @@ Features:
 
 - [Check out the Demo site][1]
 
-[1]: https://forward-data-dashboard-demo.netlify.app/dashboard/home
+[1]: https://forward-data-dashboard-demo.netlify.app
 
 # Future development
 
-- Add more charts that customers want
-- Add custom date range for charts
-- Chart customizations, e.g. colours
-- Export charts and data
+Depending on what the customers want, future enhancements can include:
+- More charts 
+- Customizable date range for charts
+- Other chart customizations, e.g. colours
+- Exportable charts and data
 
-# Credits and references
+# References
 
-- [Client Demo site][5] - Existing dashboard
+- [Client Demo site][5] - Client's existing demo dashboard
 - [Navbar reference][6] - Reference for NavBar
 - [Mantine Datatable][7] - Reference for Mantine Datatable
-- [Airtable URL encoder][8] - Reference for airtable endpoint
+- [Airtable URL encoder][8] - Airtable API URL encoder 
 
   [5]: https://dashboard.shipamiga.com/dashboard/recja2ANzmll7wqR5
   [6]: https://ui.mantine.dev/category/navbars#double-navbar
@@ -99,8 +102,4 @@ MVP Complete
 ## 3 Aug 2023
 
 1. Add sort by dates
-
-Stretch goals
-
-- Write unit tests
-- Use D3 for charts
+2. Add unit tests
