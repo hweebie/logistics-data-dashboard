@@ -61,11 +61,7 @@ function App() {
         <AppShell
           padding="md"
           navbar={<SimpleNavBar />}
-          header={
-            <Header height={0} p="xs">
-              ShipAmiga Dashboard
-            </Header>
-          }
+          
           styles={(theme) => ({
             main: {
               backgroundColor:
