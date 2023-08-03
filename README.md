@@ -4,7 +4,7 @@ An operational business review dashboard built for a logistics start-up that see
 
 The goal of this dashboard is to enable 3PLs to conduct business reviews with their shippers, demonstrate performance, and get more trips. This dashboard saves 3PLs weeks of effort to prepare for such reviews by automatically generating data and charts needed for the business reviews.
 
-This game was developed as part of my coursework for my Software Engineering Immersive Bootcamp in General Assembly.
+This dashboard was developed in 1 week as part of my coursework for my Software Engineering Immersive Bootcamp in General Assembly.
 
 # Screenshots
 
@@ -29,21 +29,26 @@ Features:
 - JavaScript
 - Front-end library: React.js
 - React component library: Mantine
+- Table component: Mantine DataTable
 - Charting library: Chart.js
 - Database: Airtable
 
 # Demo site
 
-- Todo: Add deployment URL
+- [Check out the Demo site][1]
 
-# Next Steps
+[1]: https://forward-data-dashboard-demo.netlify.app/dashboard/home
 
-- More charts
-- Sort by date
+# Future development
+
+- Add more charts that customers want
+- Add custom date range for charts
+- Chart customizations, e.g. colours
+- Export charts and data
 
 # Credits and references
 
-- [Client Demo site][5]
+- [Client Demo site][5] - Existing dashboard
 - [Navbar reference][6] - Reference for NavBar
 - [Mantine Datatable][7] - Reference for Mantine Datatable
 - [Airtable URL encoder][8] - Reference for airtable endpoint
@@ -52,6 +57,10 @@ Features:
   [6]: https://ui.mantine.dev/category/navbars#double-navbar
   [7]: https://icflorescu.github.io/mantine-datatable
   [8]: https://codepen.io/airtable/full/MeXqOg?baseId=appPYAMvKJeeoDs8Y&tableId=tblghPYVFfkEZRIOE
+
+# Current Limitations
+
+- Charts don't display a date if there are no data points for those dates
 
 # Changelog
 
@@ -95,7 +104,3 @@ Stretch goals
 
 - Write unit tests
 - Use D3 for charts
-
-## Limitations
-
-- Chart doesn't show a date if there are no data points for those dates
