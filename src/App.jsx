@@ -26,6 +26,12 @@ function App() {
       contactName: "Alex Garcia",
       contactEmail: "alex@pepsi.com",
     },
+    {
+      id: "reckbrAUovM3FdAYg",
+      shipperName: "Tiger Brewery",
+      contactName: "Melanie Lee",
+      contactEmail: "melanie@tigerbeer.com",
+    },
   ]);
 
   return (
@@ -61,7 +67,6 @@ function App() {
         <AppShell
           padding="md"
           navbar={<SimpleNavBar />}
-          
           styles={(theme) => ({
             main: {
               backgroundColor:
