@@ -36,12 +36,13 @@ const DailyDeliveryCountChart = (props) => {
     scales: {
       y: {
         ticks: {
-          stepSize: 1,//set tick interval on y-axis as 1 
+          suggestedMin: 0,
+          stepSize: 1, //set tick interval on y-axis as 1
         },
       },
       x: {
         ticks: {
-          stepSize: 1,//set tick interval on x-axis as 1 
+          stepSize: 1, //set tick interval on x-axis as 1
         },
       },
     },

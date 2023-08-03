@@ -39,6 +39,7 @@ const OnTimeDeliveryChart = (props) => {
             stepSize: 1, //set tick interval on x-axis as 1
           },
         },
+        y: { max: 100 },
       },
     },
   };

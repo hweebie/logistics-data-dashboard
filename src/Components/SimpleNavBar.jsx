@@ -99,7 +99,9 @@ export function SimpleNavBar() {
       })}
       key={item.label}
       // icon={<item.icon className={classes.linkIcon} stroke={1.5} />}
-      onClick={() => setActive(item.label)}
+      onClick={() => {
+        setActive(item.label);
+      }}
       to={item.link}
     >
       {" "}
@@ -119,26 +121,6 @@ export function SimpleNavBar() {
         </Group>
         {links}
       </Navbar.Section>
-
-      {/* <Navbar.Section className={classes.footer}>
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
-        >
-          <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-          <span>Change account</span>
-        </a>
-
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
-        >
-          <IconLogout className={classes.linkIcon} stroke={1.5} />
-          <span>Logout</span>
-        </a>
-      </Navbar.Section> */}
     </Navbar>
   );
 }
