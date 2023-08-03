@@ -83,7 +83,6 @@ const TripsTable = (props) => {
       <Grid>
         <Grid.Col span={3}>
           <TextInput
-            clearable
             placeholder="Search using Reference No..."
             icon={<IconSearch size={16} />}
             value={query}
@@ -115,13 +114,12 @@ const TripsTable = (props) => {
           records={records}
           columns={[
             { accessor: "clientReference", title: "Reference No.", key: "idx" },
-            { accessor: "pickupDate", sortable: true },
+            { accessor: "pickupDate" },
             {
               accessor: "deliveryDate",
               title: "Required Delivery Date",
-              sortable: true,
             },
-            { accessor: "actualDeliveryDate", sortable: true },
+            { accessor: "actualDeliveryDate" },
             {
               accessor: "isOnTime",
               title: "Is On Time",

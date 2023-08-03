@@ -30,7 +30,7 @@ Shipper Overview - View all your shippers in one page
 # Next Steps
 
 - More charts
-- More filters
+- Sort by date
 
 # Credits and references
 
@@ -76,12 +76,12 @@ MVP Complete
 5. Add date filter to trips table
 6. Change recordId to clientReference
 
-## Next steps
+## 3 Aug 2023
 
 Debug issues
 
 - Table: Add sort by dates
-- Chart: X-axis should have specific date intervals, even if there are no data points for some dates
+- Chart doesn't show a date if there are no data points for those dates dates
 
 Stretch goals
 
