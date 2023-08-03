@@ -1,10 +1,10 @@
 import { useState, useEffect, React } from "react";
 import { Grid } from "@mantine/core";
 import { Link, useParams } from "react-router-dom";
-// import Airtable from "airtable";
 import TripsTable from "../Components/TripsTable";
 import OnTimeDeliveryChart from "../Components/OnTimeDeliveryChart";
 import DailyDeliveryCountChart from "../Components/DailyDeliveryCountChart";
+// import Airtable from "airtable"; //if fetching data using Airtable.js
 
 const ShipperBusinessReviewPage = (props) => {
   const [shipperName, setShipperName] = useState(""); //state for shipperName
@@ -26,7 +26,7 @@ const ShipperBusinessReviewPage = (props) => {
         "appPYAMvKJeeoDs8Y/Trips%20(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=contractorName&fields%5B%5D=contractorId&fields%5B%5D=clientReference&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&filterByFormula=(%7BclientId%7D+%3D+%22" +
         shipperID.id +
         "%22)&sort%5B0%5D%5Bfield%5D=deliveryDate&sort%5B0%5D%5Bdirection%5D=desc",
-      // ^ retrieves fields needed for display, filters by clientId
+      // ^ retrieves fields needed for display. Filters by clientId. Sorts by deliveryDate desc
       {
         method: "GET",
         headers: {
@@ -74,7 +74,7 @@ const ShipperBusinessReviewPage = (props) => {
     }
   };
 
-  // Another way: get trips for the specific shipper by using airtable.js library
+  // Another way to call Airtable API: using airtable.js library
   // const getTripsData = () => {
   //   const tripsArray = [];
 

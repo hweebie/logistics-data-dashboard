@@ -1,4 +1,4 @@
-import { DataTable } from "mantine-datatable";
+import { DataTable, DataTableSortStatus } from "mantine-datatable";
 import { Box, Badge, TextInput, Grid } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import { IconSearch, IconFilter } from "@tabler/icons-react";
