@@ -1,4 +1,4 @@
-import { DataTable, DataTableSortStatus } from "mantine-datatable";
+import { DataTable } from "mantine-datatable";
 import { Box, Badge, TextInput, Grid } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import { IconSearch, IconFilter } from "@tabler/icons-react";
@@ -21,8 +21,14 @@ const TripsTable = (props) => {
   //for date range
   const [deliveryDateSearchRange, setDeliveryDateSearchRange] = useState();
 
+  //for sorting
+  const [sortStatus, setSortStatus] = useState({
+    columnAccessor: "deliveryDate",
+    direction: "desc",
+  });
+
   //formats isOnTime when trips data is propped
-  useEffect(() => {
+  const formatData = () => {
     const array = props.tripsData.map((trip, idx) => ({
       ...trip,
       isOnTime: trip.isOnTime ? "True" : "False",
@@ -40,9 +46,26 @@ const TripsTable = (props) => {
       idx: idx,
     }));
     setFormattedTripData(array);
-    const sliced = array.slice(0, PAGE_SIZE);
-    setRecords(sortBy(sliced), "deliveryDate");
+  };
+
+  useEffect(() => {
+    //1. format all data
+    formatData();
+
+    //2. slice and store in records
+    const sliced = formattedTripsData.slice(0, PAGE_SIZE);
+    setRecords(sliced);
   }, [props.tripsData]);
+
+  useEffect(() => {
+    console.log("sorted");
+    let data = sortBy(formattedTripsData, sortStatus.columnAccessor);
+    if (sortStatus.direction === "desc") {
+      data = data.reverse();
+    }
+    const sliced = data.slice(0, PAGE_SIZE);
+    setRecords(sliced);
+  }, [sortStatus]);
 
   //update data when page changes
   useEffect(() => {
@@ -114,12 +137,13 @@ const TripsTable = (props) => {
           records={records}
           columns={[
             { accessor: "clientReference", title: "Reference No.", key: "idx" },
-            { accessor: "pickupDate" },
+            { accessor: "pickupDate", sortable: true },
             {
               accessor: "deliveryDate",
               title: "Required Delivery Date",
+              sortable: true,
             },
-            { accessor: "actualDeliveryDate" },
+            { accessor: "actualDeliveryDate", sortable: true },
             {
               accessor: "isOnTime",
               title: "Is On Time",
@@ -141,6 +165,9 @@ const TripsTable = (props) => {
           paginationText={({ from, to, totalRecords }) =>
             `Records ${from} - ${to} of ${totalRecords}`
           }
+          //sorting
+          sortStatus={sortStatus}
+          onSortStatusChange={setSortStatus}
         />
       </Box>
     </>
