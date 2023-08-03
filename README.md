@@ -35,12 +35,14 @@ Shipper Overview - View all your shippers in one page
 # Credits and references
 
 - [Client Demo site][5]
-- [Navbar reference][6] - To create pixel art
-- [Airtable URL encoder][7] - Reference for airtable endpoint
+- [Navbar reference][6] - Reference for NavBar
+- [Mantine Datatable][7] - Reference for Mantine Datatable
+- [Airtable URL encoder][8] - Reference for airtable endpoint
 
   [5]: https://dashboard.shipamiga.com/dashboard/recja2ANzmll7wqR5
   [6]: https://ui.mantine.dev/category/navbars#double-navbar
-  [7]: https://codepen.io/airtable/full/MeXqOg?baseId=appPYAMvKJeeoDs8Y&tableId=tblghPYVFfkEZRIOE
+  [7]: https://icflorescu.github.io/mantine-datatable
+  [8]: https://codepen.io/airtable/full/MeXqOg?baseId=appPYAMvKJeeoDs8Y&tableId=tblghPYVFfkEZRIOE
 
 # Changelog
 
@@ -78,12 +80,13 @@ MVP Complete
 
 ## 3 Aug 2023
 
-Debug issues
-
-- Table: Add sort by dates
-- Chart doesn't show a date if there are no data points for those dates dates
+1. Add sort by dates
 
 Stretch goals
 
 - Write unit tests
 - Use D3 for charts
+
+## Limitations
+
+- Chart doesn't show a date if there are no data points for those dates

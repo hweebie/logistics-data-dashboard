@@ -27,8 +27,8 @@ const TripsTable = (props) => {
     direction: "desc",
   });
 
-  //formats isOnTime when trips data is propped
-  const formatData = () => {
+  //formats isOnTime and status for display and paginate data on first load
+  useEffect(() => {
     const array = props.tripsData.map((trip, idx) => ({
       ...trip,
       isOnTime: trip.isOnTime ? "True" : "False",
@@ -46,26 +46,11 @@ const TripsTable = (props) => {
       idx: idx,
     }));
     setFormattedTripData(array);
-  };
 
-  useEffect(() => {
-    //1. format all data
-    formatData();
-
-    //2. slice and store in records
-    const sliced = formattedTripsData.slice(0, PAGE_SIZE);
+    //slice and store in records
+    const sliced = array.slice(0, PAGE_SIZE);
     setRecords(sliced);
   }, [props.tripsData]);
-
-  useEffect(() => {
-    console.log("sorted");
-    let data = sortBy(formattedTripsData, sortStatus.columnAccessor);
-    if (sortStatus.direction === "desc") {
-      data = data.reverse();
-    }
-    const sliced = data.slice(0, PAGE_SIZE);
-    setRecords(sliced);
-  }, [sortStatus]);
 
   //update data when page changes
   useEffect(() => {
@@ -100,6 +85,17 @@ const TripsTable = (props) => {
       })
     );
   }, [debouncedQuery, deliveryDateSearchRange]);
+
+  //update data and paginate when user sorts by date fields
+  useEffect(() => {
+    console.log("sorted");
+    let data = sortBy(formattedTripsData, sortStatus.columnAccessor);
+    if (sortStatus.direction === "desc") {
+      data = data.reverse();
+    }
+    const sliced = data.slice(0, PAGE_SIZE);
+    setRecords(sliced);
+  }, [sortStatus]);
 
   return (
     <>
