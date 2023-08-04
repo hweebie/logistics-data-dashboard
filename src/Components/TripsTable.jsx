@@ -88,7 +88,6 @@ const TripsTable = (props) => {
 
   //update data and paginate when user sorts by date fields
   useEffect(() => {
-    console.log("sorted");
     let data = sortBy(formattedTripsData, sortStatus.columnAccessor);
     if (sortStatus.direction === "desc") {
       data = data.reverse();

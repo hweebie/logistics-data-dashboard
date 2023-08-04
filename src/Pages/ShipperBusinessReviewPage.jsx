@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import TripsTable from "../Components/TripsTable";
 import OnTimeDeliveryChart from "../Components/OnTimeDeliveryChart";
 import DailyDeliveryCountChart from "../Components/DailyDeliveryCountChart";
-// import Airtable from "airtable"; //if fetching data using Airtable.js
 
 const ShipperBusinessReviewPage = (props) => {
   const [shipperName, setShipperName] = useState(""); //state for shipperName
@@ -73,65 +72,6 @@ const ShipperBusinessReviewPage = (props) => {
       setTripsData(tripsArray); //store retrieved trips
     }
   };
-
-  // Another way to call Airtable API: using airtable.js library
-  // const getTripsData = () => {
-  //   const tripsArray = [];
-
-  //   Airtable.configure({
-  //     endpointUrl: "https://api.airtable.com",
-  //     apiKey:
-  //       "patslEakZwYSUfW3Y.e100026e74bc8543246f5fa474b283d01ae7afc0e430a6fc2bd60274eb1dab9c",
-  //   });
-  //   var base = Airtable.base("appPYAMvKJeeoDs8Y");
-
-  //   base("Trips (Hwee)")
-  //     .select({
-  //       //retrieve only these fields from the table
-  //       fields: [
-  //         "clientName",
-  //         "clientId",
-  //         "contractorName",
-  //         "contractorId",
-  //         "clientReference",
-  //         "pickupDate",
-  //         "deliveryDate",
-  //         "actualDeliveryDate",
-  //         "origin",
-  //         "destination",
-  //         "status",
-  //       ],
-  //       //filter by client ID
-  //       filterByFormula: `({clientId} = "recjLPXLxSKFtMHGc")`,
-  //       sort: [{ field: "deliveryDate", direction: "desc" }],
-  //     })
-  //     .eachPage(
-  //       function page(records, fetchNextPage) {
-  //         // This function (`page`) will get called for each page of records.
-
-  //         //push each record into tripsArray
-  //         records.forEach(function (record) {
-  //           tripsArray.push(record.fields);
-  //         });
-
-  //         setTripsData((currentState) => {
-  //           return [...currentState, ...tripsArray];
-  //         });
-  //         //update tripsData state
-
-  //         // To fetch the next page of records, call `fetchNextPage`.
-  //         // If there are more records, `page` will get called again.
-  //         // If there are no more records, `done` will get called.
-  //         fetchNextPage();
-  //       },
-  //       function done(err) {
-  //         if (err) {
-  //           console.error(err);
-  //           return;
-  //         }
-  //       }
-  //     );
-  // };
 
   useEffect(() => {
     getShipperName();
