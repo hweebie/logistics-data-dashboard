@@ -69,7 +69,7 @@ const OnTimeDeliveryChart = (props) => {
     return dateA - dateB;
   });
 
-  //adjust array to show 5 most recent dates
+  //adjust array to show 7 most recent dates
   const numDatesToShow = 7;
   const startIndex = Math.max(0, dataArray.length - numDatesToShow);
   const recentDataArray = dataArray.slice(startIndex);
