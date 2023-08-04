@@ -2,7 +2,7 @@
 
 An operational business review dashboard built for a logistics start-up that seeks to modernise freight operations for third-party logistics (3PL) companies.
 
-The goal of this dashboard is to enable 3PLs to conduct business reviews with their shippers, demonstrate performance, and get more trips. This dashboard saves 3PLs weeks of effort to prepare for such reviews by automatically generating data and charts needed for the business reviews.
+The goal of this dashboard is to enable 3PLs to conduct business reviews with their shippers, demonstrate performance, and get more trips. This dashboard saves 3PLs time and effort to generate presentable reports by automatically generating data and charts needed for the business reviews.
 
 This dashboard was developed in 1 week as part of my coursework for my Software Engineering Immersive Bootcamp in General Assembly.
 
