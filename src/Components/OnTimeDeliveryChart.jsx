@@ -45,7 +45,17 @@ const OnTimeDeliveryChart = (props) => {
   };
 
   //Calculate % on time deliveries by requested delivery date
-  //use reduce to create an object with total and true counts per date
+  //use reduce to create an object with total and true counts per date, output:
+  // {
+  //   '2023-08-01': {
+  //     total: 2,
+  //     trueCount: 1
+  //   },
+  //   '2023-08-02': {
+  //     total: 3,
+  //     trueCount: 2
+  //   }
+  // }
   const countsByDate = props.tripsData.reduce((acc, record) => {
     const { deliveryDate, isOnTime } = record;
     acc[deliveryDate] = acc[deliveryDate] || { total: 0, trueCount: 0 };
@@ -56,7 +66,17 @@ const OnTimeDeliveryChart = (props) => {
     return acc;
   }, {});
 
-  // convert the object to an array of objects with date and % true
+  //convert the object to an array of objects with date and % true, output:
+  //const dataArray = [
+  //   {
+  //     date: '2023-08-01',
+  //     onTimeRate: 50, // (1 trueCount / 2 total) * 100
+  //   },
+  //   {
+  //     date: '2023-08-02',
+  //     onTimeRate: 66.66666666666666, // (2 trueCount / 3 total) * 100
+  //   }
+  // ];
   let dataArray = Object.entries(countsByDate).map(([date, counts]) => ({
     date,
     onTimeRate: (counts.trueCount / counts.total) * 100,

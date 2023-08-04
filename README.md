@@ -21,9 +21,9 @@ Features:
 - Charts showing key business metrics with 7-day lookback
 - Data table which shows all records. Records can be sorted by date fields
   <img src="./src/assets/ReadmeScreen4.png">
-- User can search for specific records using Reference No. 
+- User can search for specific records using Reference No.
   <img src="./src/assets/ReadmeScreen5.png">
-- User can filter data table by required delivery date 
+- User can filter data table by required delivery date
   <img src="./src/assets/ReadmeScreen6.png">
 
 # Technologies Used
@@ -44,7 +44,8 @@ Features:
 # Future development
 
 Depending on what the customers want, future enhancements can include:
-- More charts 
+
+- More charts
 - Customizable date range for charts
 - Other chart customizations, e.g. colours
 - Exportable charts and data
@@ -54,7 +55,7 @@ Depending on what the customers want, future enhancements can include:
 - [Client Demo site][5] - Client's existing demo dashboard
 - [Navbar reference][6] - Reference for NavBar
 - [Mantine Datatable][7] - Reference for Mantine Datatable
-- [Airtable URL encoder][8] - Airtable API URL encoder 
+- [Airtable URL encoder][8] - Airtable API URL encoder
 
   [5]: https://dashboard.shipamiga.com/dashboard/recja2ANzmll7wqR5
   [6]: https://ui.mantine.dev/category/navbars#double-navbar
@@ -64,6 +65,9 @@ Depending on what the customers want, future enhancements can include:
 # Current Limitations
 
 - Charts don't display a date if there are no data points for those dates
+- [Chart.js canvas render size does not adjust automatically based on the browser display size][9]
+
+[9]: https://www.chartjs.org/docs/latest/configuration/responsive.html
 
 # Changelog
 
@@ -102,4 +106,4 @@ MVP Complete
 ## 3 Aug 2023
 
 1. Add sort by dates
-2. Add unit tests
+2. Bugfixes

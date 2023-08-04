@@ -48,15 +48,14 @@ const DailyDeliveryCountChart = (props) => {
     },
   };
 
-  //Calculate daily delivery count by actual delivery date
-  //use reduce to create an object with date counts
+  //calculate daily delivery count by actual delivery date
   const dateCounts = props.tripsData.reduce((acc, record) => {
     const { actualDeliveryDate } = record;
     acc[actualDeliveryDate] = (acc[actualDeliveryDate] || 0) + 1;
     return acc;
   }, {});
 
-  //convert the object to an array of objects with date and count
+  //convert the object to an array of objects with date and count.
   let dataArray = Object.entries(dateCounts).map(([date, count]) => ({
     date,
     count,

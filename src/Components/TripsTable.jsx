@@ -10,9 +10,9 @@ import { React, useEffect, useState } from "react";
 const TripsTable = (props) => {
   //for table pagination
   const PAGE_SIZE = 15;
-  const [formattedTripsData, setFormattedTripData] = useState([]);
-  const [page, setPage] = useState(1);
-  const [records, setRecords] = useState([]);
+  const [formattedTripsData, setFormattedTripData] = useState([]); //all records
+  const [page, setPage] = useState(1); //current page
+  const [records, setRecords] = useState([]);//sliced set of records for current page
 
   //for search
   const [query, setQuery] = useState("");
@@ -80,7 +80,6 @@ const TripsTable = (props) => {
         ) {
           return false;
         }
-
         return true;
       })
     );
