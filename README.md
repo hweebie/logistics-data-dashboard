@@ -44,17 +44,20 @@ Features:
 # Getting started
 
 Install dependencies
-`npm install`
+```
+npm install
+```
 
 You'll need an Airtable base containing Forward lab's Trips data
 
 Export Airtable endpoint as VITE_SERVER and credentials as VITE_TOKEN environment variables
 
-````
+```
 VITE_SERVER=https://api.airtable.com/v0/
 VITE_AIRTABLE_BASE_ID=yourAirtableBaseID
 VITE_AIRTABLE_TABLE_NAME=yourTableName
-VITE_TOKEN=yourAirtableToken```
+VITE_TOKEN=yourAirtableToken
+```
 
 # Future development
 
