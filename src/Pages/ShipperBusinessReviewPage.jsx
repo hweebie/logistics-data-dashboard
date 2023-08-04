@@ -22,7 +22,10 @@ const ShipperBusinessReviewPage = (props) => {
     const tripsArray = [];
     const res = await fetch(
       import.meta.env.VITE_SERVER +
-        "appPYAMvKJeeoDs8Y/Trips%20(Hwee)?fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=contractorName&fields%5B%5D=contractorId&fields%5B%5D=clientReference&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&filterByFormula=(%7BclientId%7D+%3D+%22" +
+        import.meta.env.VITE_AIRTABLE_BASE_ID +
+        "/" +
+        import.meta.env.VITE_AIRTABLE_TABLE_NAME +
+        "fields%5B%5D=clientName&fields%5B%5D=clientId&fields%5B%5D=contractorName&fields%5B%5D=contractorId&fields%5B%5D=clientReference&fields%5B%5D=pickupDate&fields%5B%5D=deliveryDate&fields%5B%5D=actualDeliveryDate&fields%5B%5D=origin&fields%5B%5D=destination&fields%5B%5D=status&filterByFormula=(%7BclientId%7D+%3D+%22" +
         shipperID.id +
         "%22)&sort%5B0%5D%5Bfield%5D=deliveryDate&sort%5B0%5D%5Bdirection%5D=desc",
       // ^ retrieves fields needed for display. Filters by clientId. Sorts by deliveryDate desc
@@ -30,7 +33,7 @@ const ShipperBusinessReviewPage = (props) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + import.meta.env.VITE_API_KEY,
+          Authorization: "Bearer " + import.meta.env.VITE_TOKEN,
         },
       }
     );
