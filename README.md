@@ -126,8 +126,4 @@ MVP Complete
 1. Add sort by dates
 2. Bugfixes
 
-````
 
-```
-
-```
